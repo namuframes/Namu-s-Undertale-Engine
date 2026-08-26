@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"bgm_patient",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":59.094784,
+  "exportDir":"",
+  "name":"bgm_patient",
+  "parent":{
+    "name":"SFX",
+    "path":"folders/EXAMPLE (its ok to delete)/SFX.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"bgm_patient.mp3",
+  "volume":0.5,
+}

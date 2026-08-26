@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"draw_hp",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"draw_hp",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/ENGINE/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"set_heart",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"set_heart",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/ENGINE/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

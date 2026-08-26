@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"linearVar",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"linearVar",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/ENGINE/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

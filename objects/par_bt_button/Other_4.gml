@@ -1,0 +1,1 @@
+array_push(obj_battle_control.buttons,id);

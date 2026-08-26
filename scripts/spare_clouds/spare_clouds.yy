@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"spare_clouds",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"spare_clouds",
+  "parent":{
+    "name":"BATTLE",
+    "path":"folders/ENGINE/Scripts/BATTLE.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

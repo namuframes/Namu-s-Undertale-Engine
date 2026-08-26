@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"switch_room",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"switch_room",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/ENGINE/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

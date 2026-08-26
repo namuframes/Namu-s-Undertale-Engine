@@ -1,0 +1,1 @@
+ds_grid_clear(grid,0)

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"set_flavor",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"set_flavor",
+  "parent":{
+    "name":"BATTLE",
+    "path":"folders/ENGINE/Scripts/BATTLE.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

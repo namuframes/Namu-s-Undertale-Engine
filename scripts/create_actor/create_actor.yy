@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"create_actor",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"create_actor",
+  "parent":{
+    "name":"OVERWORLD",
+    "path":"folders/ENGINE/Scripts/OVERWORLD.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

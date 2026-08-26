@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"direction_to_face",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"direction_to_face",
+  "parent":{
+    "name":"OVERWORLD",
+    "path":"folders/ENGINE/Scripts/OVERWORLD.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

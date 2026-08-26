@@ -1,0 +1,7 @@
+---- Finish the Engine ----
+- Quesitons system
+- player be capable to flee from a battles
+- Save system
+- EXP system
+- Room Persistent System
+- Party system [W.I.P]

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"tween_destroy",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"tween_destroy",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/ENGINE/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

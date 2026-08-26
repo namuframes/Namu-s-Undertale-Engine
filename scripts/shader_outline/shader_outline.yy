@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"shader_outline",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"shader_outline",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/ENGINE/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

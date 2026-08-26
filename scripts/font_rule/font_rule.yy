@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"font_rule",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"font_rule",
+  "parent":{
+    "name":"TEXT",
+    "path":"folders/ENGINE/Scripts/TEXT.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"voicebank",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"voicebank",
+  "parent":{
+    "name":"TEXT",
+    "path":"folders/ENGINE/Scripts/TEXT.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

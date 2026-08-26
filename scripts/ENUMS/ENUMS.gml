@@ -1,0 +1,113 @@
+enum DIR{
+	UP=90,
+	DOWN=270,
+	LEFT=180,
+	RIGHT=0
+};
+
+enum ENCOUNTER_ID {
+	SPECIAL_WHIMSUN,
+	LOOX_EXAMPLE,
+	FROGGIT_EXAMPLE
+}
+
+enum SHOP_OPTIONS {
+	BUY,
+	SELL,
+	TALK,
+	EXIT
+}
+
+enum DEPTHS {
+	UI= -999	
+}
+
+enum STATE {
+	free,
+	frozen
+}
+
+enum BATTLE_TURNS { //THIS TURNS SEQUENCE IS QUITE IMPORTANT!!!!
+	PLAYER_INIT,
+	PLAYER,
+	PLAYER_END,
+	TURN_PREPARATION,
+	TURN,
+	END
+}
+
+enum ENEMY_EVENTS {
+	ACT_0,
+	ACT_1,
+	ACT_2,
+	ACT_3,
+	START,
+	MENU_SWITCH,
+	TURN_PREPARAITON,
+	TURN_PREPARAITON_END,
+	TURN_START,
+	TURN,
+	TURN_END,
+	SPARED,
+	HURT,
+	BEFORE_HURT,
+	DEATH
+}
+
+enum TURN_EVENTS {
+	TURN_PREPARAITON,
+	TURN_PREPARAITON_END,
+	TURN_START,
+	TURN_END
+}
+
+enum BATTLE_PAGES {
+	FIGHT,
+	ACT,
+	ITEM,
+	MERCY,
+	ACT_CHOOSE,
+	FIGHT_ACTION,
+	MAIN=-4,
+}
+
+enum ATTACK_STATE {
+	INTRO,
+	ATTACKING,
+	ANIMATION,
+	OUTRO
+}
+
+enum SOUL_MODE {
+	RED=#ff0000,
+	BLUE=#0000ff,
+	YELLOW=#ffff00,
+	GREEN=#008000,
+}
+
+enum SPEECH_SIDE {
+	RIGHT,
+	LEFT,
+	UP,
+	DOWN
+}
+
+enum TEXTconfig {
+	color = #FFFFFF,
+	color2 = #FFFF00
+}
+
+enum PLAYER {
+	overworld_speed = 3,
+	soul_speed = 4
+}
+
+enum BOX_TYPE {
+	overworld,
+	battle,
+	shop
+}
+	
+enum LAYER {
+	UI=-99
+}

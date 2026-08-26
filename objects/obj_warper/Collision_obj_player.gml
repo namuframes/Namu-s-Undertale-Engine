@@ -1,0 +1,1 @@
+switch_room(dest_room,dest_x,dest_y,dest_object)

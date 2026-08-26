@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"BULLET_BORDER_FUNCTION",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"BULLET_BORDER_FUNCTION",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/ENGINE/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"INITIALIZER",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"INITIALIZER",
+  "parent":{
+    "name":"INITIAL",
+    "path":"folders/ENGINE/Scripts/INITIAL.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

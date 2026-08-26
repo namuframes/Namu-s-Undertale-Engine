@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"BGM_FUNCTIONS",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"BGM_FUNCTIONS",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/ENGINE/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,38 @@
+{
+  "$GMTileSet":"v1",
+  "%Name":"tl_example_surface",
+  "autoTileSets":[],
+  "macroPageTiles":{
+    "SerialiseHeight":0,
+    "SerialiseWidth":0,
+    "TileSerialiseData":[],
+  },
+  "name":"tl_example_surface",
+  "out_columns":14,
+  "out_tilehborder":0,
+  "out_tilevborder":0,
+  "parent":{
+    "name":"TILESETS",
+    "path":"folders/EXAMPLE (its ok to delete)/TILESETS.yy",
+  },
+  "resourceType":"GMTileSet",
+  "resourceVersion":"2.0",
+  "spriteId":{
+    "name":"spr_tile_surface",
+    "path":"sprites/spr_tile_surface/spr_tile_surface.yy",
+  },
+  "spriteNoExport":false,
+  "textureGroupId":{
+    "name":"Default",
+    "path":"texturegroups/Default",
+  },
+  "tileAnimationFrames":[],
+  "tileAnimationSpeed":15.0,
+  "tileHeight":20,
+  "tilehsep":0,
+  "tilevsep":0,
+  "tileWidth":20,
+  "tilexoff":0,
+  "tileyoff":0,
+  "tile_count":192,
+}

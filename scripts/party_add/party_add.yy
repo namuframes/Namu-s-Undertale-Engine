@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"party_add",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"party_add",
+  "parent":{
+    "name":"OVERWORLD",
+    "path":"folders/ENGINE/Scripts/OVERWORLD.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

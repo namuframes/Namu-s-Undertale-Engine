@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"SOUL_FUNCTIONS",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"SOUL_FUNCTIONS",
+  "parent":{
+    "name":"BATTLE",
+    "path":"folders/ENGINE/Scripts/BATTLE.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

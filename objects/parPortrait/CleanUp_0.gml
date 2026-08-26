@@ -1,0 +1,1 @@
+ds_map_destroy(sprite_faces)

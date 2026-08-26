@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"world_save_player",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"world_save_player",
+  "parent":{
+    "name":"OVERWORLD",
+    "path":"folders/ENGINE/Scripts/OVERWORLD.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

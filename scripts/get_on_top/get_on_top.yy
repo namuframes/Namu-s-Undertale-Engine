@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"get_on_top",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"get_on_top",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/ENGINE/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

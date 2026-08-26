@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"create_speech_bubble",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"create_speech_bubble",
+  "parent":{
+    "name":"OVERWORLD",
+    "path":"folders/ENGINE/Scripts/OVERWORLD.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

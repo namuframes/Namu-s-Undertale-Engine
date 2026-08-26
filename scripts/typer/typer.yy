@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"typer",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"typer",
+  "parent":{
+    "name":"TEXT",
+    "path":"folders/ENGINE/Scripts/TEXT.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

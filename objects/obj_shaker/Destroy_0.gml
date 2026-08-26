@@ -1,0 +1,1 @@
+variable_instance_set(target,target_variable,initial_value)

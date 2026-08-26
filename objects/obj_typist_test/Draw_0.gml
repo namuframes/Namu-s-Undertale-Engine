@@ -1,0 +1,1 @@
+draw_each_letter(x,y, "* Howdy!<w>\nI'm <c_yellow>FLOWEY</c>!<w>\n<c_yellow>FLOWEY</c> the <c_yellow>FLOWER</c>!",,,,,,,,,true,writer)

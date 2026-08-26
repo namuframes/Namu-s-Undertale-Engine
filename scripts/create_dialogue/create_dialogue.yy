@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"create_dialogue",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"create_dialogue",
+  "parent":{
+    "name":"OVERWORLD",
+    "path":"folders/ENGINE/Scripts/OVERWORLD.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

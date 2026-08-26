@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"get_letter_map",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"get_letter_map",
+  "parent":{
+    "name":"TEXT",
+    "path":"folders/ENGINE/Scripts/TEXT.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

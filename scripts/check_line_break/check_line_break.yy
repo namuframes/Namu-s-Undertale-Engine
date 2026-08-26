@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"check_line_break",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"check_line_break",
+  "parent":{
+    "name":"TEXT",
+    "path":"folders/ENGINE/Scripts/TEXT.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

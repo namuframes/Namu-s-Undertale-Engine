@@ -1,0 +1,1 @@
+draw_sprite_stretched_ext(eng_ref,index,0,0,BASE_WIDTH,BASE_HEIGHT,c_white,refalpha);

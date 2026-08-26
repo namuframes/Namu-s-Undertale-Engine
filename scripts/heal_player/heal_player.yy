@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"heal_player",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"heal_player",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/ENGINE/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

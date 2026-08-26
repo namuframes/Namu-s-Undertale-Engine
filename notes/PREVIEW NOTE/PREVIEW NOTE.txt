@@ -1,0 +1,5 @@
+F1 - Debug mode
+F2 - Restart Game
+F4 - Fullscren
+F5 - Room Changer
+F6 - Border

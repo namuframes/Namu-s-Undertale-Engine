@@ -1,0 +1,1 @@
+if (instance_exists(obj_overworld)) {struct_set(positions,songAsset,audio_sound_get_track_position(songInstance))};

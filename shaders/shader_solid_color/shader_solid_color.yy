@@ -1,0 +1,12 @@
+{
+  "$GMShader":"",
+  "%Name":"shader_solid_color",
+  "name":"shader_solid_color",
+  "parent":{
+    "name":"Shaders",
+    "path":"folders/ENGINE/Shaders.yy",
+  },
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
+}

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"battle_next_turn",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"battle_next_turn",
+  "parent":{
+    "name":"BATTLE",
+    "path":"folders/ENGINE/Scripts/BATTLE.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

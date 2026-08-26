@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"region_set_population",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"region_set_population",
+  "parent":{
+    "name":"REGION",
+    "path":"folders/ENGINE/Scripts/OVERWORLD/REGION.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

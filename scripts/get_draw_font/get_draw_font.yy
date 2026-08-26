@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"get_draw_font",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"get_draw_font",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/ENGINE/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
