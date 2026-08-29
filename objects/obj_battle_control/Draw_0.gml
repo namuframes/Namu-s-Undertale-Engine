@@ -13,5 +13,4 @@ draw_lang_font(fnt_mars);
 draw_text_transformed(bottom_ui.x,bottom_ui.y,$"{global.name}   lv {global.stat.level}",3,3,0)
 draw_text_transformed((hp.x+hp.width)+16,hp.y,$"{p} / { global.stat.hp_max}",3,3,0)
 draw_set_font(-1);
-
 //The texts are in obj_bulletBorder draw event

@@ -1,7 +1,7 @@
 
 var _x = x+54;
 var _y = y+59;
-draw_sprite_stretched(spr_box,0,_x,_y,212,87)
+draw_box(_x,_y,212,87)
 
 var txt_x = _x+16;
 var txt_y = _y+11;

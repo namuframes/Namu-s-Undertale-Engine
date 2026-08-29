@@ -6,17 +6,21 @@ border_offset = {
 	y: 30
 }
 border_template = {
-	sprite: spr_border,
-	alpha: 0,
-	index: 0,
-	ease_time: 20
+	sprite:		spr_border,
+	alpha:		0,
+	index:		0,
+	ease_time:	20
 }
 
-my_border = ds_map_create()
-my_border[? "current"] = variable_clone(border_template)
-my_border[? "target"] = variable_clone(border_template)
+_border = {
+	current:	variable_clone(border_template),
+	target:		variable_clone(border_template)
+}
 
 prepare_gui = function(width,height,_x=0,_y=0,multiplier=2) {
-	var f = min(window_get_width()/width,window_get_height()/height);
+	var b = room == rm_battle ? .5 : 1
+	var f = min(window_get_width()/width,window_get_height()/height)*b;
 	display_set_gui_maximise(f*multiplier,f*multiplier,_x,_y);
 }
+
+application_surface_draw_enable(false)

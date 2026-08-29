@@ -4,7 +4,6 @@ switch(state) {
 		if (oneshot) {
 			do_tween(id,"introX","image_xscale",1,EASE_LINEAR,1);
 			do_tween(id, "introY","image_yscale",1,EASE_LINEAR,1);
-			box_size(,,,obj_bulletBorder.y-40)
 			oneshot=false;
 		}
 		image_alpha += .05*(image_alpha < 1)
@@ -64,18 +63,13 @@ switch(state) {
 		}
 		if (!instance_exists(cutscene)) {
 			if (anim) {
-				damage_enemy(damage)
-				anim = false;
-			}
-			state = ATTACK_STATE.OUTRO
+				damage_enemy(damage);	anim = false;
+			};
+			if (!instance_exists(target.my_scene)) {state = ATTACK_STATE.OUTRO};
 		}
 	break;
 	
 	case ATTACK_STATE.OUTRO:
-		if (obj_battle_control.TURN >= BATTLE_TURNS.TURN_PREPARATION) {
-			killself=true
-		}
-		if (killself) {
 			if (oneshot) {
 				instance_destroy(obj_target_mark)
 				do_tween(id, "outroX","image_xscale",0,EASE_LINEAR,2);
@@ -87,7 +81,6 @@ switch(state) {
 			if ((!tween_exists("outroX") && !tween_exists("outroY")) || image_alpha <= 0) {
 				instance_destroy();	
 			}
-		}
 		
 	break;
 	

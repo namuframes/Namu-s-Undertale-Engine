@@ -4,7 +4,8 @@ if (warning_time > 0) {
 	draw_set_alpha(image_alpha)
 	draw_set_colour(c_black); 
 	draw_rectangle(0,0,room_width,room_height,false)
-	draw_set_colour(c_white); 
-	draw_sprite_ext(spr_soul,0,soul_x,soul_y,.5,.5,0,SOUL_MODE.RED,1);
+	draw_set_colour(c_white);
+	var scale = room == rm_battle ? 2 : 1
+	draw_sprite_ext(spr_soul,0,soul_x,soul_y,.5*scale,.5*scale,0,SOUL_MODE.RED,1);
 }
 draw_set_alpha(1)

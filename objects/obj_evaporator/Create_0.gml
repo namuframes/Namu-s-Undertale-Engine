@@ -10,7 +10,8 @@ peee = 1
 var w = sprite_get_width(spr)*2;
 var h = sprite_get_height(spr)*2;
 size = 2;
-spd = h*0.85
+spd = h*0.85;
+
 if (!surface_exists(surf)) {
 	surf = surface_create(w, h);
 	// Load sprite into surface

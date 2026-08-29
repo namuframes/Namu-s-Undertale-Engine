@@ -1,12 +1,11 @@
-
-var position
-var box_stat = {x:16, y: 26}
-draw_sprite_stretched(spr_box,0,box_stat.x,box_stat.y+136*!get_if_top(),71,55)
-position = {x: box_stat.x+7, y: box_stat.y+4}
-draw_lang_font(fnt_main)
-draw_text(position.x,position.y+136*!get_if_top(),string_upper(global.name))
-draw_set_font(-1)
-var info = ""
+var position;
+var box_stat = {x:16, y: 26};
+draw_box(box_stat.x,box_stat.y+136*!get_if_top(),71,55);
+position = {x: box_stat.x+7, y: box_stat.y+4};
+draw_lang_font(fnt_main);
+draw_text(position.x,position.y+136*!get_if_top(),string_upper(global.name));
+draw_set_font(-1);
+var info = "";
 info += $"lv {global.stat.level}\n"
 info += $"hp {global.stat.hp}/{global.stat.hp_max}\n"
 info += $"g  {global.stat.gold}\n"
@@ -15,7 +14,7 @@ draw_text_ext(position.x,position.y+21+136*!get_if_top(),info,9,-1)
 draw_set_font(-1)
 var box_options = {x: 16,	y: 84}
 var e = array_length(options) > 3 ? 10*array_length(options) : 30
-draw_sprite_stretched(spr_box,0,box_options.x,box_options.y,71,44+e)
+draw_box(box_options.x,box_options.y,71,44+e)
 for(var i = 0; i < array_length(options); i++) {
 	position = {x: box_options.x+26, y: box_options.y+10+18*i}
 	var c = TEXTconfig.color;
@@ -33,7 +32,7 @@ if (decided) {
 		case menu.status:
 			draw_lang_font(fnt_main)
 			var my_pos = {x: box_stat.x+78, y: 26}
-			draw_sprite_stretched(spr_box,0,my_pos.x,my_pos.y,173,209)
+			draw_box(my_pos.x,my_pos.y,173,209)
 			draw_text(my_pos.x+14,my_pos.y+16,$"\"{string_upper(global.name)}\"")
 			var stats = [];
 			var weapon = is_struct(global.stat.weapon) ? [item_name(global.stat.weapon),global.stat.weapon.stats.damage] : ["(NONE)",0]

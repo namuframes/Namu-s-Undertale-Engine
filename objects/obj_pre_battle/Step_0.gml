@@ -20,19 +20,21 @@ switch(state) {
 					speed += (speed_gain/max(1,blinks))*DELTA
 					speed = clamp(speed,1,infinity)
 					time = 1;
-				}
+				};
 			} else {time -= (1/speed)*DELTA};
-		} else {warning_time-=DELTA}
-		soul_x = obj_player.x
-		soul_y = obj_player.y
+		} else {warning_time-=DELTA};
+		soul_x = obj_player.x;
+		soul_y = obj_player.y;
 	break
 	
 	case 1:
 		if (fake) {instance_destroy()} else {
-			dark=true
-			state=2
-			audio_play_sound(snd_battle_start,0,0)
-			room_goto(rm_battle)
+			dark=true;
+			state=2;
+			audio_play_sound(snd_battle_start,0,0);
+			soul_x = obj_player.x*2;
+			soul_y = obj_player.y*2;
+			room_goto(rm_battle);
 		}
 	break;
 	

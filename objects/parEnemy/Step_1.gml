@@ -1,5 +1,4 @@
 /// @description 
-check_custenceCommands();
 if (on_battle()) { //If i'm on battle
 	if (hp_previous != hp) {attacked = true;}
 	var attack_is_higher = hp+defense <= global.stat.attack

@@ -1,15 +1,15 @@
-var c = my_border[? "current"].sprite
+var c = _border.current.sprite
 if (global.border) {
-	if (my_border[? "current"].sprite != my_border[? "target"].sprite && asset_get_type(my_border[? "target"].sprite) == asset_sprite) {
-		my_border[? "target"].alpha += (my_border[? "target"].alpha<1)*1/my_border[? "target"].ease_time;
-		my_border[? "target"].index += sprite_get_speed(my_border[? "target"].sprite)/FPS;
-		if (my_border[? "target"].alpha >= 1) {
-			my_border[? "current"].sprite = my_border[? "target"].sprite;
-			my_border[? "current"].index = my_border[? "target"].index;
+	if (_border.current.sprite != _border.target.sprite && asset_get_type(_border.target.sprite) == asset_sprite) {
+		_border.target.alpha += (_border.target.alpha<1)*1/_border.target.ease_time;
+		_border.target.index += sprite_get_speed(_border.target.sprite)/FPS;
+		if (_border.target.alpha >= 1) {
+			_border.current.sprite = _border.target.sprite;
+			_border.current.index = _border.target.index;
 		};
 	}
-	my_border[? "current"].alpha += (my_border[? "current"].alpha<1)*1/my_border[? "current"].ease_time;
-	my_border[? "current"].index += sprite_get_speed(my_border[? "current"].sprite)/FPS;
+	_border.current.alpha += (_border.current.alpha<1)*1/_border.current.ease_time;
+	_border.current.index += sprite_get_speed(_border.current.sprite)/FPS;
 
 	var no_border_rooms = [];
 	if (array_get_index(no_border_rooms,room) >= 0) {border_set_sprite(spr_border)} else {
@@ -18,11 +18,11 @@ if (global.border) {
 		};
 	};
 } else {
-	my_border[? "current"].alpha = 0;
+	_border.current.alpha = 0;
 };
-if (c != my_border[? "current"].sprite) {
-	my_border[? "target"].sprite = undefined;
-	my_border[? "target"].index = 0;
-	my_border[? "target"].alpha = 0;
+if (c != _border.current.sprite) {
+	_border.target.sprite = undefined;
+	_border.target.index = 0;
+	_border.target.alpha = 0;
 }
-if (asset_get_type(my_border[? "current"].sprite) != asset_sprite) {my_border[? "current"].sprite = spr_border};
+if (asset_get_type(_border.current.sprite) != asset_sprite) {_border.current.sprite = spr_border};

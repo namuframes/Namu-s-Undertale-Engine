@@ -1,5 +1,4 @@
 /// @description BORDER
-
 var width  = window_get_width(), height = window_get_height();
 var fx = width/BORDER_WIDTH;
 var fy = height/BORDER_HEIGHT;

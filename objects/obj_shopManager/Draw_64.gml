@@ -14,14 +14,14 @@ var soul = {
 }
 
 {//Main box
-	draw_sprite_stretched(spr_box,0,box.main.x,box.main.y,box.main.width, box.main.height)
+	draw_box(box.main.x,box.main.y,box.main.width, box.main.height)
 	if (page.current == -1) { 
 		draw_each_letter(txt.x,txt.y,speech.main,,,,,,,,(box.main.width-box.options.width)-15,true,main_text)
 	} else {main_text.reset()}
 	
 	switch(page.current) {
 		case SHOP_OPTIONS.BUY:
-			draw_sprite_stretched(spr_box,0,box.buy.x,box.buy.y+offy,box.buy.width,1000)
+			draw_box(box.buy.x,box.buy.y+offy,box.buy.width,1000)
 			for (var i = 0; i < array_length(storage); i++) {
 				var _item = storage[i].item;
 				var _x = txt.x;
@@ -58,7 +58,7 @@ var soul = {
 }
 
 if (page.current != "cutscene" && page.current != SHOP_OPTIONS.EXIT) {//Options box
-	draw_sprite_stretched(spr_box,0,box.options.x,box.options.y,box.options.width, box.options.height)
+	draw_box(box.options.x,box.options.y,box.options.width, box.options.height)
 	if (page.current == -1) {
 		for(var i = 0; i < array_length(options); i++) {
 			var _x = box.options.x+15

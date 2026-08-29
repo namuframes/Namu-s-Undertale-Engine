@@ -54,3 +54,4 @@ do_movement = function() {
 		}
 	}	
 }
+alarm[0] = 1;

@@ -195,6 +195,7 @@
     {"id":{"name":"direction_to_face","path":"scripts/direction_to_face/direction_to_face.yy",},},
     {"id":{"name":"do_shake","path":"scripts/do_shake/do_shake.yy",},},
     {"id":{"name":"do_tween","path":"scripts/do_tween/do_tween.yy",},},
+    {"id":{"name":"draw_box","path":"scripts/draw_box/draw_box.yy",},},
     {"id":{"name":"draw_collisions","path":"scripts/draw_collisions/draw_collisions.yy",},},
     {"id":{"name":"draw_each_letter","path":"scripts/draw_each_letter/draw_each_letter.yy",},},
     {"id":{"name":"draw_hp","path":"scripts/draw_hp/draw_hp.yy",},},

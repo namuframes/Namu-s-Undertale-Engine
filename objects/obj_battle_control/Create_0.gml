@@ -1,25 +1,19 @@
-
 setup_menu()
 
-function create_enemy_array() {
+function create_enemies() {
+	var centerX = room_width/2, pw = 0,	space=6;
+	var length = array_length(enemy)
 	if (!is_array(enemy)) {enemy = [enemy]}
-	var center = {
-		x: room_width/(array_length(enemy)+1), y: room_height/2
-	}
-	for(var i = 0; i < array_length(enemy); i++) {
-		if (asset_get_type(enemy[i]) == asset_object) {
-			var previous_enemy = i > 0 ? enemy[i-1].object_index : enemy[0]
-			var previous_width = sprite_get_width(object_get_sprite(previous_enemy))*2
-			var spacing = 10+previous_width
-			var spr_width = sprite_get_width(object_get_sprite(enemy[i]))*2
-			var spr_height = sprite_get_height(object_get_sprite(enemy[i]))*2
-			var sprite_center = (spr_width/2)
-			var x_offset = sprite_get_xoffset(object_get_sprite(enemy[i]))*2
-			var y_offset = sprite_get_yoffset(object_get_sprite(enemy[i]))*2
-			var _x = center.x+x_offset
-			var _y = center.y+y_offset
-			enemy[i] = instance_create_depth((_x-sprite_center)+spacing*i,(_y-spr_height),depth+1,enemy[i]);
-			with(enemy[i]) {event_user(ENEMY_EVENTS.START)}
+	for(var i = 0; i < length; i++) {
+		enemy[i] = instance_create_depth(0,0,depth+20,enemy[i]);
+		with(enemy[i]) {
+			x += (centerX-((sprite_width+space)*length)/2)+pw;
+			y += obj_bulletBorder.bbox_top-sprite_height;
+			depth -= i;
+			x += sprite_xoffset; y += sprite_yoffset;
+			xstart = x;	ystart = y;
+			pw += sprite_width+space;
+			event_user(ENEMY_EVENTS.START);
 		}
 	}
 }
@@ -61,7 +55,6 @@ function no_cutscene() {
 	with(parTurn) {if (instance_exists(my_scene)) {endd=false}};
 
 	if (instance_exists(my_cutscene) || instance_exists(parCutscene)) {endd = false}
-	if (delay > 0) {endd =false}
 	//if (instance_exists(parCutscene) || instance_exists(my_cutscene) || delay > 0) {endd = false}
 	return endd
 }
@@ -129,14 +122,20 @@ lootbox = {
 	gold: 0
 }
 
-buttons = []
+buttons = [obj_bt_fight,obj_bt_act,obj_bt_item,obj_bt_mercy]
+
+array_foreach(buttons,function(val,i) {
+	if (asset_get_type(val) == asset_object) {
+		var _x = 32+(sprite_get_width(spr_bt_fight)+43)*i, _y = 432;
+		var offx = sprite_get_xoffset(spr_bt_fight), offy = sprite_get_yoffset(spr_bt_fight)
+		buttons[i] = instance_create_depth(_x+offx,_y+offy,depth,val);
+		buttons[i].w = i;
+	}
+})
 
 mercy_actions = ["Spare","Flee"]
-wait_damage = false //For damage animation
-my_cutscene = undefined
-delay = 1; 
-//Delay makes sure that cutscenes created with c_name via enemy works
-//And used for when battle_next_turn is called to ensure that it's called once
+wait_damage = false; //For damage animation
+my_cutscene = undefined;
 
 heart_offset = {
 	x: (sprite_get_xoffset(spr_soul)),

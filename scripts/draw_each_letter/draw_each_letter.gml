@@ -17,9 +17,8 @@ function draw_each_letter(_x,_y,text,separation=0,line_spacing=0,color=c_white,f
 	var width=0, height=0
 	
 	if (room == rm_battle) {
-		_xscale *= 2;
-		_yscale *= 2;
-	}
+		_xscale *= 2;	_yscale *= 2;
+	};
 	draw_set_font(font); draw_set_colour(color)
 	
 	if (line_spacing <= 0) {line_spacing = string_height("I")*1.15}
@@ -118,7 +117,7 @@ function draw_each_letter(_x,_y,text,separation=0,line_spacing=0,color=c_white,f
 			z=0
 		};
 
-		if (i <= show) {
+		if (show >= i) {
 			var final_x = _x+space;
 			var final_y = _y+(line_spacing*_yscale)*line;
 			var offx=0, offy=0;
@@ -132,7 +131,8 @@ function draw_each_letter(_x,_y,text,separation=0,line_spacing=0,color=c_white,f
 				offy += lengthdir_y(random(shake[1]),random(360))
 			}	
 			
-			draw_text_transformed(final_x+offx,final_y+offy,c,_xscale,_yscale,angle);
+			draw_text_transformed_colour(final_x+offx,final_y+offy,c,_xscale,_yscale,angle,
+			draw_get_colour(),draw_get_colour(),draw_get_colour(),draw_get_colour(),draw_get_alpha());
 		}
 		space += (cw+separation)*_xscale;
 		line_previous=line;

@@ -6,8 +6,9 @@ display_reset(0,true)
 
 
 surface_resize(application_surface,BASE_WIDTH*RESOLUTION,BASE_HEIGHT*RESOLUTION)
-application_surface_draw_enable(false)
+
 font_add_enable_aa(false)
+gpu_set_texfilter(false);
 global.TYPEWRITER_EVENT = ds_map_create();
 
 

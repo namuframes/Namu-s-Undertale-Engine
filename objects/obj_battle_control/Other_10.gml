@@ -15,4 +15,4 @@ if (!is_array(global.ENCOUNTER_ID)) {
 } else {
 	enemy = global.ENCOUNTER_ID;	
 }
-create_enemy_array();
+create_enemies();

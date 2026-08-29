@@ -71,10 +71,12 @@ damage_taken = 0;
 action = []
 
 speech_bubble = { //The position that the bubble is supposed to be!
-	x_left: bbox_left,
-	x_right: bbox_right,
-	y: bbox_top+sprite_height/2,
-	y_top: bbox_top
+	left:		0,
+	right:		0,
+	top:		0,
+	bottom:		0,
+	centerX:	0,
+	centerY:	0
 }
 
 hpbar = { //Hp bar info

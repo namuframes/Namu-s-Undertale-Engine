@@ -1,7 +1,7 @@
 
 var _item = page = "item" ? global.inventory[index.current] : selected_item
 
-draw_sprite_stretched(spr_box,0,x,y,173,181)
+draw_box(x,y,173,181)
 
 for(var i = 0; i < array_length(actions); i++) {
 	var option = actions[i]

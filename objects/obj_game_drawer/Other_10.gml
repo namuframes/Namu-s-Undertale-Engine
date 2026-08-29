@@ -1,5 +1,4 @@
 /// @description NO BORDER
- 
 var width  = window_get_width();
 var height = window_get_height();
 var factor = min(width/BASE_WIDTH, height/BASE_HEIGHT);

@@ -1,12 +1,22 @@
 text_info = undefined;
 update_side = function() {
-	var __p = x+txt_offset.x+string_width("W")*4
+	var __p = x+txt_offset.x+string_width("W")*4, t = target;
+	var right,left,top,bottom,centerY,centerX
+	with(t) {
+		right =		bbox_right+speech_bubble.right;
+		left =		bbox_left+speech_bubble.left;
+		top =		bbox_top+speech_bubble.top;
+		bottom =	bbox_bottom+speech_bubble.bottom;
+		centerX =	(bbox_left/2+bbox_right/2)+speech_bubble.centerX
+		centerY =	(bbox_top/2+bbox_bottom/2)+speech_bubble.centerY;
+	};
+
 	switch(side) {
 		default: //Right
-			length = room_width-(__p)
-			if (instance_exists(target)) {
-				x = target.speech_bubble.x_right+pointer.xoffset
-				y = target.speech_bubble.y
+			length = room_width-(__p);
+			if (instance_exists(t)) {
+				x = right+pointer.xoffset;
+				y = centerY;
 			}
 			pointer.x = x;
 			pointer.y = y;
@@ -18,16 +28,16 @@ update_side = function() {
 		break;
 
 		case SPEECH_SIDE.LEFT: //Left
-			if (instance_exists(target)) {
-				x = target.speech_bubble.x_left
-				y = target.speech_bubble.y
-			}
-			
+			if (instance_exists(t)) {
+				x = left;
+				y = centerY;
+			};
+
 			pointer.x = x;
 			pointer.y = y;
 			pointer.angle = 0;
 			pointer.flipx = true;
-			length = -__p
+			length = -__p;
 			
 			bubble.x = ((pointer.x-pointer.xoffset)-width)+outline_size*0.5;
 			bubble.y = pointer.y-height*.5+2
@@ -35,9 +45,9 @@ update_side = function() {
 		
 		case SPEECH_SIDE.UP: //Up
 			length = room_width/2-txt_offset.x
-			if (instance_exists(target)) {
-				x = ((target.bbox_left+target.bbox_right)/2)
-				y = target.speech_bubble.y_top
+			if (instance_exists(t)) {
+				x = centerX
+				y = top
 			}
 			pointer.x = x;
 			pointer.y = y;
@@ -50,10 +60,10 @@ update_side = function() {
 	
 		case SPEECH_SIDE.DOWN: //Down
 			length = room_width/2-txt_offset.x
-			if (instance_exists(target)) {
-				x = ((target.bbox_left+target.bbox_right)/2)
-				y = target.bbox_bottom
-			}
+			if (instance_exists(t)) {
+				x = centerX;
+				y = bottom;
+			};
 	
 			pointer.x = x;
 			pointer.y = y;
@@ -106,17 +116,6 @@ next_page = function() {
 	}
 }
 
-check_mute = function() {
-	if (instance_number(object_index) > 1) {
-		for(var i = 0; i < instance_number(object_index); i++) {
-			var bubble = instance_find(object_index,i)
-			if (string_length(bubble.text) >= string_length(text)) {
-				mute=true
-			}
-		}
-	}
-}
-
 can_draw = false
 text = []
 outline_size = 2
@@ -161,5 +160,4 @@ txt = {
 	x: 0,
 	y: 0
 }
-
 alarm[0] = 1;

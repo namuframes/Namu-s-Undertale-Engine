@@ -1,4 +1,3 @@
-y -= 60
 event_inherited();
 terrified = false
 set_action("Terrorize", function() {
@@ -17,4 +16,5 @@ time = random_range(0,120)
 wont_die = false;
 c = random_range(-100,100);
 image_index = irandom(image_number)
-speech_bubble.y -= 20;
+speech_bubble.centerY -= 20;
+y -= 60
