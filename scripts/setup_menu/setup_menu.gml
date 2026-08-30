@@ -50,7 +50,7 @@ function setup_menu() {
 	show_soul = function(_sprite=spr_soul) { //Drawing the soul in it proper position u_u
 		var scale = .5
 		if (_sprite == spr_small_heart) {scale = 1}
-		draw_sprite_ext(_sprite,0,ui_heart.x,ui_heart.y,scale,scale,0,c_white,1)	
+		draw_sprite_ext(_sprite,0,global.ui_heart.x,global.ui_heart.y,scale,scale,0,c_white,1)	
 	}
 
 }

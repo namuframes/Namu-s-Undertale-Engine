@@ -4,13 +4,13 @@ var break_array = [BATTLE_TURNS.PLAYER, BATTLE_TURNS.TURN], stop = false
 READY = instance_exists(obj_pre_battle) ? obj_pre_battle.state >= 3 : true
 
 //---Instantaneous Processing-------
-while(!array_contains(break_array,TURN)) {
+while(!array_contains(break_array,TURN) && !stop) {
 	switch(TURN) {
 		case BATTLE_TURNS.PLAYER_INIT:
 			if (box_is_normal()) {
 				if (!instance_exists(obj_soul)) {instance_create_depth(x,y,obj_bulletBorder.depth-1,obj_soul)}
 				battle_soul_visible(true);
-				battle_soul_state(STATE.frozen);
+				battle_soul_state(STATE.follow);
 				battle_soul_variable_set("invincible",0)
 
 				if (array_length(index.previous) > 0) {index.current = array_first(index.previous)};
@@ -40,7 +40,7 @@ while(!array_contains(break_array,TURN)) {
 		case BATTLE_TURNS.PLAYER_END:
 			if (!instance_exists(obj_soul)) {instance_create_depth(x,y,obj_bulletBorder.depth-1,obj_soul)};
 			battle_soul_visible(false);
-			battle_soul_state(STATE.frozen);
+			battle_soul_state(STATE.follow);
 			//If there isn't any cutscene from the enemies and myself, proceed.
 			if (no_cutscene()) {battle_next_turn()} else {stop=true};
 		break;
@@ -59,14 +59,14 @@ while(!array_contains(break_array,TURN)) {
 						else if (spared) { //If enemy is spared
 						 	other.lootbox.gold += gold;
 						 	enemy_event(ENEMY_EVENTS.SPARED,id);
-						} else {enemy_event(ENEMY_EVENTS.TURN_PREPARAITON,id)};
+						} else {enemy_event(ENEMY_EVENTS.TURN_PREPARATION,id)};
 					}
 				}
 			
-				if (instance_exists(parTurn)) {
-					box_reset();	box_size(160,136);
+				if (instance_exists(parTurn)) {//If there is an attack, prepare the box and yeah :3
+					box_reset();	box_size(160,136);	battle_soul_visible(true);
 				};
-				turn_event(TURN_EVENTS.TURN_PREPARAITON);
+				turn_event(TURN_EVENTS.TURN_PREPARATION);
 				oneshot=false;
 			};
 		
@@ -74,8 +74,8 @@ while(!array_contains(break_array,TURN)) {
 
 			if (no_cutscene()) { //PREPARATION END
 				if (array_length(enemy) > 0) {
-					enemy_event(ENEMY_EVENTS.TURN_PREPARAITON_END);
-					turn_event(TURN_EVENTS.TURN_PREPARAITON_END);
+					enemy_event(ENEMY_EVENTS.TURN_PREPARATION_END);
+					turn_event(TURN_EVENTS.TURN_PREPARATION_END);
 				
 					battle_next_turn();
 				} else {battle_end()};
@@ -85,7 +85,6 @@ while(!array_contains(break_array,TURN)) {
 		
 		default: stop=true break;
 	}
-	if (stop) {break};
 };
 
 switch(TURN) {
@@ -190,7 +189,6 @@ switch(TURN) {
 			global.BATTLE_TIME = 0;
 			
 			battle_soul_visible(false);
-			battle_soul_state(STATE.frozen);
 			
 			instance_destroy(obj_soul_bullet);
 			
@@ -227,9 +225,7 @@ with(par_bt_button) {
 	var pg = other.page.current == BATTLE_PAGES.MAIN
 	hovering = bt == id && pg;
 	if (hovering) {
-		with(other) {
-			set_heart(other.x+18,other.y+20)	
-		}
+		with(other) {set_heart(other.x+18,other.y+20)};
 	}
 }
 

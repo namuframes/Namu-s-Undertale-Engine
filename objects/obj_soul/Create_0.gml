@@ -8,7 +8,7 @@ spd = PLAYER.soul_speed;
 
 follow_border = true
 
-state = STATE.frozen
+state = STATE.free
 mode = SOUL_MODE.RED;
 
 jump_force = 1;

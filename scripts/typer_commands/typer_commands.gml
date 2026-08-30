@@ -67,9 +67,6 @@ add_typer_command("noskip",function() {skipable=!skipable});
 add_typer_command("/noskip",function() {skipable=false});
 add_typer_command("noproceed",function() {can_proceed=!can_proceed});
 add_typer_command("/noproceed",function() {can_proceed=false});
-add_typer_command("finish",function() {
-	index = length;
-});
 
 add_typer_command("voice",blip);
 add_typer_command("blip",blip);

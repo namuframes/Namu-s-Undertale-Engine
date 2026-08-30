@@ -1,5 +1,7 @@
 #macro DEVELOPER_MODE true
 
+#macro START_ROOM rm_battle
+
 #macro RESOLUTION 2
 
 #macro BASE_WIDTH 320
@@ -25,7 +27,6 @@
 
 #macro CMD_START "<"
 #macro CMD_END ">"
-#macro TEXT_MAP_STRING "textIndex"
 
 #macro SHAKE_DEFAULT_INTENSITY 1
 #macro WAVE_DEFAULT_SPEED 1.5

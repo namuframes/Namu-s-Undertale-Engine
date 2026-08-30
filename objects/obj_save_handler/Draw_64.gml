@@ -1,4 +1,3 @@
-
 var _x = x+54;
 var _y = y+59;
 draw_box(_x,_y,212,87)
@@ -21,5 +20,5 @@ for(var i = 0; i < array_length(options); i++) {
 		set_heart(__x,__y+3)
 	}
 }
-draw_sprite(spr_small_heart,0,ui_heart.x,ui_heart.y);
+draw_sprite(spr_small_heart,0,global.ui_heart.x,global.ui_heart.y);
 draw_set_font(-1)

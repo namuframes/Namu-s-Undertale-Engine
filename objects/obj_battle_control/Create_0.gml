@@ -91,9 +91,6 @@ main_button = function(_sprite) constructor {
 	selectable = true;
 }
 
-if (!instance_exists(obj_soul)) {instance_create_depth(obj_bulletBorder.x,obj_bulletBorder.y,obj_bulletBorder.depth-1,obj_soul)};
-battle_soul_state(STATE.frozen)
-
 main_font = lang_font(fnt_main_mono)
 
 TURN = BATTLE_TURNS.PLAYER_INIT

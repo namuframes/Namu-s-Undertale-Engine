@@ -1,7 +1,6 @@
 draw_self();
 
 draw_set_mask(1)
-//draw_sprite_ext(sprite_index,image_index,x,y,image_xscale-.2,image_yscale-.2,image_angle,c_red,1)
 var t = thickness*1.5
 draw_rectangle_colour(bbox_left+t,bbox_top+t,bbox_right-t,bbox_bottom-t,c_red,c_red,c_red,c_red,false);
 
@@ -14,14 +13,14 @@ draw_not_on_mask()
 with(obj_battle_control) {
 	var lr = (input_pressed(INPUT_RIGHT)-input_pressed(INPUT_LEFT));
 	var row_length = 2
-
+	var box = obj_bulletBorder
 	txt = {
-		x: other.bbox_left+20,
-		y: other.bbox_top+16
+		x: box.bbox_left+20,
+		y: box.bbox_top+16
 	}
 
 	if (TURN == BATTLE_TURNS.PLAYER && page.current == BATTLE_PAGES.MAIN && READY) {	
-		draw_each_letter(txt.x,txt.y,flavor_text,,,,,,,,other.bbox_right-txt.x,true,flavor_writer)
+		draw_each_letter(txt.x,txt.y,flavor_text,,,,,,,,box.bbox_right-txt.x,true,flavor_writer)
 	} else {flavor_writer.reset()};
 
 	switch(TURN) {
@@ -30,11 +29,11 @@ with(obj_battle_control) {
 				case BATTLE_PAGES.ACT:
 					enemy_list(BATTLE_PAGES.ACT_CHOOSE);
 				break;
-			
+		
 				case BATTLE_PAGES.FIGHT:
 					enemy_list(BATTLE_PAGES.FIGHT_ACTION,true);
 				break;
-			
+		
 				case BATTLE_PAGES.ACT_CHOOSE:
 					if (lr != 0) {
 						var line  = index.current mod row_length, collum = index.current div row_length;
@@ -50,7 +49,7 @@ with(obj_battle_control) {
 						if (index.current == i) {set_heart(__x+heart_offset.x-heart_offset.space,__y+heart_offset.y)}
 					}
 				break;
-			
+		
 				case BATTLE_PAGES.ITEM:
 					if (lr != 0) {
 						var line  = index.current mod row_length, collum = index.current div row_length;
@@ -66,7 +65,7 @@ with(obj_battle_control) {
 						if (index.current == i) {set_heart(__x+heart_offset.x-heart_offset.space,__y+heart_offset.y)}
 					}
 				break
-			
+		
 				case BATTLE_PAGES.MERCY:
 					for(var i = 0; i < array_length(mercy_actions); i++) {
 						var __y = txt.y+36*i, __x = txt.x+heart_offset.space, c = TEXTconfig.color
@@ -81,10 +80,10 @@ with(obj_battle_control) {
 				break;
 			}
 		break;
-	
+
 		case BATTLE_TURNS.END:
 			if (box_is_normal()) {
-				draw_each_letter(txt.x,txt.y,$"* YOU WON!<w,10>\nYou earned {lootbox.xp} XP and {lootbox.gold} GOLD",,,,,,,,other.bbox_right-txt.x,true,win_writer)
+				draw_each_letter(txt.x,txt.y,$"* YOU WON!<w,10>\nYou earned {lootbox.xp} XP and {lootbox.gold} GOLD",,,,,,,,box.bbox_right-txt.x,true,win_writer)
 			}
 		break;	
 	}

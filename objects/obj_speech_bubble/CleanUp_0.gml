@@ -1,1 +1,0 @@
-destroy_text_map();

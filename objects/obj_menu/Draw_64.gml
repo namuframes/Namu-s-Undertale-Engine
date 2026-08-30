@@ -25,7 +25,7 @@ for(var i = 0; i < array_length(options); i++) {
 	if (index == i) set_heart(position.x-14,position.y+4)
 }
 
-if (im_focus) {draw_sprite_ext(spr_small_heart,0,ui_heart.x,ui_heart.y,1,1,0,c_white,1)}
+if (im_focus) {draw_sprite_ext(spr_small_heart,0,global.ui_heart.x,global.ui_heart.y,1,1,0,c_white,1)}
 
 if (decided) {
 	switch(index) {

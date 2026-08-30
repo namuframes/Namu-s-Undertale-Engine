@@ -1,6 +1,6 @@
 function typer() constructor{
 	creator = noone;
-	index = 1;
+	index = 0;
 	
 	done=false
 	
@@ -14,8 +14,7 @@ function typer() constructor{
 	
 	wait= {
 		time: 1,
-		input: false,
-		allowed: true
+		input: false
 	};
 	
 	speed=1
@@ -40,7 +39,7 @@ function typer() constructor{
 	}
 	
 	static __skip = function() {
-		if (skipable && can_proceed && index >= 2) {
+		if (skipable && can_proceed) {
 			while(index < length) { //Executing certain commands
 				var glyph = string_char_at(text,index);
 				if (is_command(text,index)) {
@@ -63,20 +62,27 @@ function typer() constructor{
 		if (index < length) {
 			var prev_index = index;		done = false;
 			wait.time -= (wait.time>0)*DELTA;
-			while (is_command(text,index)) {
-				if (wait.time > 0 || wait.input) {break};
-				var _start = index,	_end = string_pos_ext(CMD_END,text,_start);
-				var cmd = string_copy(text,_start+1,_end-(_start+1))
-				commands(cmd)
-				index = _end+1;
-			}
-			
 			if (wait.input) {if (input_pressed(INPUT_CONFIRM) || input_check(INPUT_SPECIAL)) {wait.input=false}};
 			if (input_pressed(INPUT_CANCEL) || input_check(INPUT_SPECIAL)) {__skip()}
-
-			if (wait.time<=0 && !wait.input) {
-				if (index < length) {index += speed*DELTA}
+			
+			if (!is_command(text,index)) {
+				if (wait.time<=0 && !wait.input) {
+					if (index < length) {index += speed*DELTA}
+				}
+			} else {
+				while (is_command(text,index) && (!wait.time && !wait.input)) {
+					var _start = string_pos_ext(CMD_START,text,index),	_end = string_pos_ext(CMD_END,text,_start);
+					var cmd = string_copy(text,_start+1,_end-(_start+1))
+					commands(cmd)
+					index = _end+1;
+				}
 			};
+			
+			
+			
+			
+			
+			
 			
 			is_writing = floor(index) != floor(prev_index)
 			if (is_writing) {
