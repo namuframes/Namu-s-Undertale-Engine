@@ -356,8 +356,8 @@
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
     {"roomId":{"name":"rm_init","path":"rooms/rm_init/rm_init.yy",},},
-    {"roomId":{"name":"rm_text_test","path":"rooms/rm_text_test/rm_text_test.yy",},},
     {"roomId":{"name":"rm_example1","path":"rooms/rm_example1/rm_example1.yy",},},
+    {"roomId":{"name":"rm_text_test","path":"rooms/rm_text_test/rm_text_test.yy",},},
     {"roomId":{"name":"rm_battle","path":"rooms/rm_battle/rm_battle.yy",},},
     {"roomId":{"name":"rm_template","path":"rooms/rm_template/rm_template.yy",},},
     {"roomId":{"name":"rm_shop","path":"rooms/rm_shop/rm_shop.yy",},},

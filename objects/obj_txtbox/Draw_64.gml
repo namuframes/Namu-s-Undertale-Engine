@@ -8,7 +8,6 @@ switch(type) {
 		}
 
 		draw_sprite(spr_textbox,0,x,y);
-	
 		if (instance_exists(portrait)) {
 			var s = 50
 			text_pos.x += s;
@@ -21,7 +20,6 @@ switch(type) {
 
 		var final_length = (sprite_get_width(spr_textbox)-text_pos.x-4)
 		text_draw(x+text_pos.x,y+text_pos.y,final_length)
-		//writer.draw(x+text_pos.x,y+text_pos.y,text[curtxt],character.spacing,,,character.font,1,1,0,final_length,character.sound);
 	break;
 	
 	case BOX_TYPE.shop:

@@ -17,7 +17,6 @@ var wait = function(time=10) {
 };
 
 var portrait = function(character="",face=undefined) {
-
 	if (creator.object_index != obj_txtbox) {exit}
 	creator.set_portrait(character,face);
 };

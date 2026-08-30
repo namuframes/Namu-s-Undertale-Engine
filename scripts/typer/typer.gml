@@ -1,6 +1,6 @@
 function typer() constructor{
 	creator = noone;
-	index = 0;
+	index = 1;
 	
 	done=false
 	
@@ -13,7 +13,7 @@ function typer() constructor{
 	length = string_length(text);
 	
 	wait= {
-		time: 0,
+		time: 1,
 		input: false,
 		allowed: true
 	};
@@ -21,12 +21,13 @@ function typer() constructor{
 	speed=1
 	
 	static reset = function() {
-		index=0
+		index = 0;
 		wait.input = false; wait.time=0;
 	}
 	
 	static commands = function(argmuents) {
 		var arg = argmuents
+		if (is_string(arg)) {arg = string_split(arg,",")};
 		var arg_count = array_length(arg)-1;
 		if (ds_map_exists(global.TYPEWRITER_EVENT,arg[0])) {
 			//If you want to make your own command, go to typer_commands
@@ -44,7 +45,7 @@ function typer() constructor{
 				var glyph = string_char_at(text,index);
 				if (is_command(text,index)) {
 					var _end = string_pos_ext(CMD_END,text,index);
-					commands(string_split(string_copy(text,index+1,_end-index-1),","))
+					commands(string_copy(text,index+1,_end-index-1))
 					if (wait.input || index >= length-1) {break}
 				}
 				index++
@@ -53,33 +54,33 @@ function typer() constructor{
 		}
 	}
 
+	static index_char = function() {
+		return string_char_at(text,index)
+	}
 	
 	static step = function() {
 		length = string_length(text);
 		if (index < length) {
-			var glyph = string_char_at(text,index);
-			var prev_index = index;
-			done = false;
-
+			var prev_index = index;		done = false;
 			wait.time -= (wait.time>0)*DELTA;
+			while (is_command(text,index)) {
+				if (wait.time > 0 || wait.input) {break};
+				var _start = index,	_end = string_pos_ext(CMD_END,text,_start);
+				var cmd = string_copy(text,_start+1,_end-(_start+1))
+				commands(cmd)
+				index = _end+1;
+			}
+			
 			if (wait.input) {if (input_pressed(INPUT_CONFIRM) || input_check(INPUT_SPECIAL)) {wait.input=false}};
 			if (input_pressed(INPUT_CANCEL) || input_check(INPUT_SPECIAL)) {__skip()}
-			if (wait.time<=0 && !wait.input) {
-				if (index < length) {
-					index += speed*DELTA
-				}
-				while (is_command(text,index) && !wait.input && wait.time <= 0) {
-					var _end = string_pos_ext(CMD_END,text,index);
-					var _b = string_pos_ext(CMD_START,text,index)+1;
-					var cmd = string_copy(text,_b,_end-_b);
-					commands(string_split(cmd,","))
-					index = _end+(string_char_at(text,_end+1) != CMD_START);
-				};
-			};
 
+			if (wait.time<=0 && !wait.input) {
+				if (index < length) {index += speed*DELTA}
+			};
+			
 			is_writing = floor(index) != floor(prev_index)
 			if (is_writing) {
-				var is_valid = string_count(glyph," !?.,*<>[]/´'\"():;{}$") <= 0
+				var is_valid = string_count(index_char()," !?.,*<>[]/´'\"():;{}$") <= 0
 				if (is_valid) {
 					voice_play(voice)
 				};
@@ -90,8 +91,7 @@ function typer() constructor{
 				}	
 			}
 		} else {
-			is_writing=false
-			done=true
+			is_writing=false;	done=true;
 		}
 	}
 }

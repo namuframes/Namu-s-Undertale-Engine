@@ -24,11 +24,13 @@ function draw_each_letter(_x,_y,text,separation=0,line_spacing=0,color=c_white,f
 	if (line_spacing <= 0) {line_spacing = string_height("I")*1.15}
 	
 	if (is_struct(_typer)) {
-		if (_typer.creator != _creator) {_typer.creator = _creator}
-		if (_typer.text != text) {_typer.text = text}
-
+		if (_typer.creator != _creator) {_typer.creator = _creator};
+		if (_typer.text != text) {_typer.text = text};
+		
+		//Making the visual have a 1 frame delay from the current index
+		//(To do that, just switched wich one of the line below comes first)
+		show = _typer.index; 
 		_typer.step();
-		show = _typer.index
 	}
 	var wave = [false,2,1], shake = [false,1], z=0
 	

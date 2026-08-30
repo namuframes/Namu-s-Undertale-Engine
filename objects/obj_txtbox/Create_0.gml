@@ -72,7 +72,9 @@ set_portrait = function(input="",face=undefined) {
 	};
 
 	if (asset_get_type(portrait) == asset_object || instance_exists(portrait)) {
-		if (!instance_exists(portrait)) {portrait = instance_create_depth(0,0,0,portrait)} else {
+		if (!instance_exists(portrait)) {
+			portrait = instance_create_depth(0,0,0,portrait)
+		} else {
 			portrait.face = input	
 		};
 	};
