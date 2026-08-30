@@ -1,6 +1,6 @@
 #macro DEVELOPER_MODE true
 
-#macro START_ROOM rm_battle
+#macro START_ROOM rm_template
 
 #macro RESOLUTION 2
 
