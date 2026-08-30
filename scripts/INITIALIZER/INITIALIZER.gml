@@ -4,7 +4,6 @@ window_set_size(WINDOW_WIDTH,WINDOW_HEIGHT)
 window_center()
 display_reset(0,true)
 
-
 surface_resize(application_surface,BASE_WIDTH*RESOLUTION,BASE_HEIGHT*RESOLUTION)
 
 font_add_enable_aa(false)
