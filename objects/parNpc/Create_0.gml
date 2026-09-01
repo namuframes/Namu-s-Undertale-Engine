@@ -33,7 +33,6 @@ interaction = function() {
 	}
 }
 
-state = STATE.free
 scenes = [];
 page = 0;
 talk = false;
@@ -44,16 +43,6 @@ my_scene = noone
 reset_sprite = false;
 
 image_speed=0;
-
-//sprite[DIR.DOWN]  = find_sprite(sprite_down);
-//sprite[DIR.LEFT]  = find_sprite(sprite_left);
-//sprite[DIR.UP]    = find_sprite(sprite_up);
-//sprite[DIR.RIGHT] = find_sprite(sprite_right);
-
-//sprite_talk[DIR.DOWN] = find_sprite(talk_down,sprite[DIR.DOWN]);
-//sprite_talk[DIR.LEFT] = find_sprite(talk_left,sprite[DIR.LEFT]);
-//sprite_talk[DIR.UP] = find_sprite(talk_up,sprite[DIR.UP]);
-//sprite_talk[DIR.RIGHT] = find_sprite(talk_right,sprite[DIR.RIGHT]);
 
 sprite_down = find_sprite(sprite_down)
 sprite_left = find_sprite(sprite_left);
@@ -69,7 +58,5 @@ prev_sprite = find_sprite(sprite_down);
 prev_face = face;
 prev_image_speed = image_speed;
 
-follow_player = false;
-follow_index = 0;
 did_scene = false
 set_talk_sprite=true

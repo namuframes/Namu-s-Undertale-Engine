@@ -17,7 +17,7 @@ function do_walk_animation() {
 	} else if (wait_index([0,2])) {image_speed = 0}	
 }
 	
-face_to_direction = function(hsp,vsp) {
+function face_to_direction(hsp,vsp) {
 	if (hsp != 0 || vsp != 0) {
 		if (vsp == 0) {
 			if (hsp < 0) {face = DIR.LEFT};
@@ -34,33 +34,15 @@ face_to_direction = function(hsp,vsp) {
 	}
 }
 	
-follow_behaviour = function() {
-	solid=false
-	if (instance_exists(obj_player)) {
-		if (array_length(obj_player.party_input) >= follow_index) {
-			var input = obj_player.party_input[follow_index-1];
-			if (is_struct(input)) {
-				x = linearVar(x,input.x,obj_player.spd);
-				y = linearVar(y,input.y,obj_player.spd);
-				if (x != xprevious || y != yprevious) {
-					image_speed = 1; 
-					face_to_direction(x-xprevious,y-yprevious)
-					sprite_index = sprite[face]
-				} else {
-					if (floor(image_index) % 2 == 0) {image_speed=0}	
-				}
-			}
-		}
-	}
-}
-	
-set_sprite = function(_name,_val) {
+function set_sprite(_name,_val) {
 	struct_set(sprite,_name,_val)	
 }
 
-get_sprite = function(_name) {
+function get_sprite(_name) {
 	return struct_get(sprite,_name);	
 };
+
+state = STATE.free;
 
 face = DIR.DOWN;
 sprite = {};

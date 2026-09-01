@@ -23,15 +23,3 @@ switch(state) {
 
 	break;
 }
-
-
-
-if (array_length(global.party) > 0) {
-	if (x != xprevious || y != yprevious) {
-		for (var i = array_length(party_input)-1; i > 0; i--)  {
-			party_input[i] = party_input[i-1]
-		};
-	
-		party_input[0] = {x: x,y: y,face: face}
-	}
-} else {party_input=[]}

@@ -55,7 +55,6 @@ function no_cutscene() {
 	with(parTurn) {if (instance_exists(my_scene)) {endd=false}};
 
 	if (instance_exists(my_cutscene) || instance_exists(parCutscene)) {endd = false}
-	//if (instance_exists(parCutscene) || instance_exists(my_cutscene) || delay > 0) {endd = false}
 	return endd
 }
 

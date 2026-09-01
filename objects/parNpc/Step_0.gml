@@ -8,11 +8,7 @@ if (is_me) {
 		if (wait_index([0])) {image_speed=0};
 	};
 }
-if (follow_player) {
-	follow_behaviour();
-} else {
-	interaction_behaviour();	
-};
+interaction_behaviour();	
 
 if (!instance_exists(my_scene)) {
 	if (reset_sprite) {

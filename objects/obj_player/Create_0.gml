@@ -50,13 +50,4 @@ set_sprite(DIR.LEFT, spr_main_l);
 set_sprite(DIR.UP, spr_main_u);
 set_sprite(DIR.RIGHT, spr_main_r);
 
-	
 ready_to_cutscene = false
-
-party_input_struct = {
-	x: x,
-	y: y,
-	face: face
-}
-
-party_input=array_create(array_length(global.party)*10,variable_clone(party_input_struct))

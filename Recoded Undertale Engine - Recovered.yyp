@@ -216,7 +216,6 @@
     {"id":{"name":"linearVar","path":"scripts/linearVar/linearVar.yy",},},
     {"id":{"name":"MACROS","path":"scripts/MACROS/MACROS.yy",},},
     {"id":{"name":"MASK_FUNCTIONS","path":"scripts/MASK_FUNCTIONS/MASK_FUNCTIONS.yy",},},
-    {"id":{"name":"party_add","path":"scripts/party_add/party_add.yy",},},
     {"id":{"name":"player_cantmove","path":"scripts/player_cantmove/player_cantmove.yy",},},
     {"id":{"name":"region_add_kill","path":"scripts/region_add_kill/region_add_kill.yy",},},
     {"id":{"name":"region_get_kill","path":"scripts/region_get_kill/region_get_kill.yy",},},
