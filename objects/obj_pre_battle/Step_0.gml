@@ -17,12 +17,12 @@ switch(state) {
 					if (dark) {
 						blinks--
 					}
-					speed += (speed_gain/max(1,blinks))*DELTA
+					speed += (speed_gain/max(1,blinks))*DELTA()
 					speed = clamp(speed,1,infinity)
 					time = 1;
 				};
-			} else {time -= (1/speed)*DELTA};
-		} else {warning_time-=DELTA};
+			} else {time -= (1/speed)*DELTA()};
+		} else {warning_time-=DELTA()};
 		soul_x = obj_player.x;
 		soul_y = obj_player.y;
 	break
@@ -56,7 +56,7 @@ switch(state) {
 	break;
 	
 	case 3:
-		image_alpha -= .25*DELTA;
+		image_alpha -= .25*DELTA();
 		if (image_alpha <= 0) {instance_destroy()}
 	break;
 }

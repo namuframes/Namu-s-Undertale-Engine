@@ -58,6 +58,7 @@ add_typer_command("wait",wait);
 add_typer_command("w",wait);
 add_typer_command("sleep",wait);
 add_typer_command("delay",wait);
+add_typer_command("talker",talker);
 
 add_typer_command("face",portrait);
 add_typer_command("f",portrait);

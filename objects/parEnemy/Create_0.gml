@@ -52,7 +52,6 @@ create_damage_text = function() {
 	return i
 }
 
-
 hp = hpmax;
 hp_previous = hp;
 fakehp = hp;

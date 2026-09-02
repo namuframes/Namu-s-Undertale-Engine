@@ -1,7 +1,20 @@
 event_inherited();
 
+function set_sprite(_name,_val) {
+	struct_set(sprite,_name,is_array(_val) ? _val : [_val])	
+}
+
+function get_sprite(_name,_index=0) {
+	if (struct_exists(sprite,_name)) {
+		return struct_get(sprite,_name)[_index];
+	}
+	return sprite_index;
+};
+
+
 function look_at_player() {
-	face = direction_to_face(x,y,obj_player.x,obj_player.y)
+	face = direction_to_face(x,y,obj_player.x,obj_player.y);
+	sprite_index = get_sprite(face);
 }
 
 function find_sprite(_sprite,fallback=sprite_index) {
@@ -34,21 +47,10 @@ function face_to_direction(hsp,vsp) {
 	}
 }
 	
-function set_sprite(_name,_val) {
-	struct_set(sprite,_name,_val)	
-}
-
-function get_sprite(_name) {
-	return struct_get(sprite,_name);	
-};
-
 state = STATE.free;
 
 face = DIR.DOWN;
 sprite = {};
-
-shake_x = 0;
-shake_y = 0;
 
 offset_x = 0;
 offset_y = 0;

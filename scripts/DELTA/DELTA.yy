@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"do_shake",
+  "%Name":"DELTA",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"do_shake",
+  "name":"DELTA",
   "parent":{
     "name":"Scripts",
     "path":"folders/ENGINE/Scripts.yy",

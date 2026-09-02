@@ -9,7 +9,7 @@ if (!attacked && !dead) {
 		}
 	}
 
-	blink_time -= (blink_time>0)*DELTA;
+	blink_time -= (blink_time>0)*DELTA();
 	if (sprite_index == spr_loox_hurt) {
 		sprite_index = spr_loox_rest
 	}

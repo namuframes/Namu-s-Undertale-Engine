@@ -16,8 +16,8 @@ switch(state) {
 		face_to_direction(hsp,vsp);
 		frisk_dance()
 		
-		x += hsp*DELTA;
-		y += vsp*DELTA;
+		x += hsp*DELTA();
+		y += vsp*DELTA();
 
 		var h = x-xprevious;
 		var v = y-yprevious;

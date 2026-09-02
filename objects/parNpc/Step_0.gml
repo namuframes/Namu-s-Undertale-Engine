@@ -1,9 +1,8 @@
 var ps = sprite_index, is_me = false;
 with(obj_txtbox) {if (target = other.id) {is_me=true}};
 
-
 if (is_me) {
-	sprite_index = get_sprite(face)[1]
+	sprite_index = get_sprite(face,1)
 	if (talk) {image_speed = 1} else {
 		if (wait_index([0])) {image_speed=0};
 	};
@@ -22,7 +21,7 @@ if (!instance_exists(my_scene)) {
 		prev_sprite = sprite_index;
 		prev_image_speed = image_speed;
 	}
-	sprite_index = get_sprite(face)[0];
+	sprite_index = get_sprite(face,0);
 };
 
 step();

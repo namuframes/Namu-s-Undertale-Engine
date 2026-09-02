@@ -23,7 +23,6 @@
 
 #macro NATIVE_FPS 30
 #macro FPS 30
-#macro DELTA (NATIVE_FPS/max(1,FPS))
 
 #macro CMD_START "<"
 #macro CMD_END ">"

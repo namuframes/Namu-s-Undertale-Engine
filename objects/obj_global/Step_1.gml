@@ -1,4 +1,4 @@
-global.time+=1*DELTA
+global.time+=1*DELTA()
 var damage = is_struct(global.stat.weapon) ? global.stat.weapon.stats.damage : 0
 var defense = is_struct(global.stat.armor) ? global.stat.armor.stats.defense : 0
 global.stat.attack = (2*global.stat.level) + damage

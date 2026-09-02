@@ -1,9 +1,9 @@
-target = undefined;
-target_variable = "";
+range_x = 0;
+range_y = 0;
+
+val = choose(-1,1);
+
 range = 10;
-pipipopo = 1
 time = 1;
 
-initial_value = undefined
-
-alarm[0] = 1
+alarm[0] = 1;

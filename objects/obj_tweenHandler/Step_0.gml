@@ -6,7 +6,7 @@ if (initialize) { //Te amo tales, <3
 
 	if (instance_exists(object)) {
 		if (curve.time < 1) {
-			curve.time += (curve.speed*0.05)*DELTA;
+			curve.time += (curve.speed*0.05)*DELTA();
 			var difere = (end_value - values_init)
 			variable_instance_set(object,var_name, values_init+difere*val);
 		} else {

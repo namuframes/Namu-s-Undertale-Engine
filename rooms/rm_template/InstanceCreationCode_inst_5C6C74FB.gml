@@ -1,0 +1,1 @@
+c_shake(obj_player,2,0,1)

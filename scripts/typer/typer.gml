@@ -61,13 +61,13 @@ function typer() constructor{
 		length = string_length(text);
 		if (index < length) {
 			var prev_index = index;		done = false;
-			wait.time -= (wait.time>0)*DELTA;
+			wait.time -= (wait.time>0)*DELTA();
 			if (wait.input) {if (input_pressed(INPUT_CONFIRM) || input_check(INPUT_SPECIAL)) {wait.input=false}};
 			if (input_pressed(INPUT_CANCEL) || input_check(INPUT_SPECIAL)) {__skip()}
 			
 			if (!is_command(text,index)) {
 				if (wait.time<=0 && !wait.input) {
-					if (index < length) {index += speed*DELTA}
+					if (index < length) {index += speed*DELTA()}
 				}
 			} else {
 				while (is_command(text,index) && (!wait.time && !wait.input)) {

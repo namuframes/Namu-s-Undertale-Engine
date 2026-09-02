@@ -35,6 +35,12 @@ function c_bgm_pause() {
 	})	
 }
 
+function c_wait_input(_input) {
+	c_cmd([_input], function(_input) {
+		if (input_pressed(_input)) {end_action()};
+	})
+};
+
 function c_bgm_resume() {
 	c_cmd([],function() {
 		bgm_resume()
@@ -59,6 +65,12 @@ function c_instance_destroy(instance) {
 function c_wait_anim(obj) {
 	c_cmd([obj],function(obj){
 		if (floor(obj.image_index) >= obj.image_number-1) {end_action()}
+	})
+}
+
+function c_wait_shake(obj) {
+	c_cmd([obj],function(obj){
+		if (!shake_exists(obj)) {end_action()};
 	})
 }
 
@@ -95,10 +107,10 @@ function c_wait(_time) {
 	})
 }
 	
-function c_shake(object,_var,range,time) {
-	c_cmd([object,_var,range,time],
-	function(object,_var,range,time) {
-		do_shake(object,_var,range,time);
+function c_shake(object,x_range,y_range,time) {
+	c_cmd([object,x_range,y_range,time],
+	function(object,x_range,y_range,time) {
+		shake(object,x_range,y_range,time);
 		end_action();
 	})
 }
@@ -108,6 +120,17 @@ function c_sprite(obj, sprite, imgSpeed=1, imgIndex=0) {
 	function(obj, sprite, imgSpeed, imgIndex) {
 		obj.sprite_index = sprite;	obj.image_speed = imgSpeed;
 		obj.image_index = imgIndex
+		end_action();
+	})
+}
+
+function c_face_at(obj, _direction) {
+	c_cmd([obj, _direction],
+	function(obj, _direction) {
+		if (object_get_parent(obj.object_index) == parActor) {
+			obj.face = _direction;
+			obj.sprite_index = obj.get_sprite(obj.face);
+		}
 		end_action();
 	})
 }

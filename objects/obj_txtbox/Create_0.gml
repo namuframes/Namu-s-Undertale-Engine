@@ -58,8 +58,8 @@ change_target = function(_id) {
 		if (variable_instance_exists(target,"talk")) {
 			target.talk = false;
 		};
-	};
-	target = _id;
+		target = _id;
+	} else {target = undefined};
 };
 
 set_portrait = function(input="",face=undefined) {

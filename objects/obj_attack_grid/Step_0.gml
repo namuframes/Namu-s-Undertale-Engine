@@ -12,7 +12,7 @@ switch(state) {
 			for(var i = 0; i < markers_amount; i++) {
 				instance_create_depth(bbox_left-60*i,y,depth-1,obj_target_mark)
 			}
-			obj_target_mark.hspeed = 16*DELTA;
+			obj_target_mark.hspeed = 16*DELTA();
 		}
 	break;
 	

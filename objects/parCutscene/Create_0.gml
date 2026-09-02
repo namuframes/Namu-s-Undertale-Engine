@@ -40,7 +40,7 @@ do_movement = function() {
 					var vsp = sign(y-yprevious);
 
 					face_to_direction(hsp,vsp);
-					sprite_index = get_sprite(face)[0];
+					sprite_index = get_sprite(face);
 					image_speed = 1;
 				}
 			}	
