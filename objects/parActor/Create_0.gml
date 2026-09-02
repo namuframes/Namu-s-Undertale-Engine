@@ -11,10 +11,13 @@ function get_sprite(_name,_index=0) {
 	return sprite_index;
 };
 
+function face_at(_direction,_index=undefined) {
+	face = direction_to_face(_direction);
+	sprite_index = get_sprite(face,_index);
+};
 
 function look_at_player() {
-	face = direction_to_face(x,y,obj_player.x,obj_player.y);
-	sprite_index = get_sprite(face);
+	face_at(point_direction(x,y,obj_player.x,obj_player.y));
 }
 
 function find_sprite(_sprite,fallback=sprite_index) {
@@ -30,7 +33,7 @@ function do_walk_animation() {
 	} else if (wait_index([0,2])) {image_speed = 0}	
 }
 	
-function face_to_direction(hsp,vsp) {
+function face_forward(hsp,vsp) {
 	if (hsp != 0 || vsp != 0) {
 		if (vsp == 0) {
 			if (hsp < 0) {face = DIR.LEFT};

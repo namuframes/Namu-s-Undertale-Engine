@@ -18,7 +18,6 @@ addscene(function() {
 
 addscene(function() {
 	c_canMove(false)
-	look_at_player()
 	c_dialogue("<talker,noone>* I'm sorry?")
 	c_question("Fuck you", fuckyouscene);
 	c_question("Sorry", function() {

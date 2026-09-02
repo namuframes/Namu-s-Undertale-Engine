@@ -1,5 +1,5 @@
-function direction_to_face(x1,y1,x2,y2){
-	var dir = round(point_direction(x1,y1,x2,y2));
+function direction_to_face(_direction){
+	var dir = round(_direction);
 	var r = DIR.RIGHT
 	if (dir >= 45 && dir < 135) {r = DIR.UP}
 	

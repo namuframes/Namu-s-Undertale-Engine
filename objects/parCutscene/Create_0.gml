@@ -39,8 +39,8 @@ do_movement = function() {
 					var hsp = sign(x-xprevious); 
 					var vsp = sign(y-yprevious);
 
-					face_to_direction(hsp,vsp);
-					sprite_index = get_sprite(face);
+					face_forward(hsp,vsp);
+					face_at(face);
 					image_speed = 1;
 				}
 			}	

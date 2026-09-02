@@ -1,2 +1,1 @@
-face = global.saved_player.face;
-sprite_index = get_sprite(face);
+face_at(global.saved_player.face);

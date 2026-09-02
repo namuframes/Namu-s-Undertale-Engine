@@ -11,18 +11,16 @@ switch(state) {
 		
 		if (input_check(INPUT_LEFT) && input_check(INPUT_RIGHT)) {hsp = -1*spd}
 		if (input_check(INPUT_UP)  && input_check(INPUT_DOWN))  {vsp = -1*spd}
-		face_to_direction(hsp,vsp);
+		face_forward(hsp,vsp);
 		collision()
-		face_to_direction(hsp,vsp);
+		face_forward(hsp,vsp);
 		frisk_dance()
 		
 		x += hsp*DELTA();
 		y += vsp*DELTA();
+		face_at(face);
 
-		var h = x-xprevious;
-		var v = y-yprevious;
 		do_walk_animation();
-		sprite_index = get_sprite(face);
 		if (input_pressed(INPUT_CONFIRM) && !instance_exists(obj_player_interactor)) {
 			var _x = (bbox_left + bbox_right) * 0.5, _y = (bbox_top + bbox_bottom) * 0.5;
 			var length = 20, radius = max(sprite_get_width(spr_main_interactor),sprite_get_height(spr_main_interactor)) * 0.25;
