@@ -20,6 +20,19 @@ function c_custom(_function,_args=[]) {
 		script_execute(_function)
 	})
 }
+function c_secondary(_function) {
+	c_cmd([_function], function(_function) {
+		if (is_method(_function)) {
+			with(creator) {
+				var s = variable_clone(variable_instance_get(id,CUTSCENE_VARIABLE));
+				variable_instance_set(id,CUTSCENE_VARIABLE,[])
+				create_cutscene(_function);
+				variable_instance_set(id,CUTSCENE_VARIABLE,s);
+			}
+			end_action()
+		}
+	})	
+}
 
 function c_bgm_set(bgm,fade_out=undefined,fade_in=undefined) {
 	c_cmd([bgm,fade_out,fade_in],function(bgm,fade_out,fade_in) {
@@ -118,18 +131,26 @@ function c_shake(object,x_range,y_range,time) {
 function c_sprite(obj, sprite, imgSpeed=1, imgIndex=0) {
 	c_cmd([obj, sprite, imgSpeed, imgIndex],
 	function(obj, sprite, imgSpeed, imgIndex) {
-		obj.sprite_index = sprite;	obj.image_speed = imgSpeed;
-		obj.image_index = imgIndex
+		obj.sprite_index = sprite;	obj.image_speed = imgSpeed;		obj.image_index = imgIndex;
+		end_action();
+	})
+}
+function c_image_speed(obj, imgSpeed, imgIndex=0) {
+	c_cmd([obj, imgSpeed, imgIndex],
+	function(obj, imgSpeed, imgIndex) {
+		obj.image_speed = imgSpeed;		obj.image_index = imgIndex;
 		end_action();
 	})
 }
 
-function c_face_at(obj, _direction) {
-	c_cmd([obj, _direction],
-	function(obj, _direction) {
+
+function c_face_at(obj, _direction,_index=0,_image_speed=0) {
+	c_cmd([obj, _direction,_index,_image_speed],
+	function(obj, _direction,_index,_image_speed) {
 		if (object_get_parent(obj.object_index) == parActor) {
-			obj.face = _direction;
-			obj.sprite_index = obj.get_sprite(obj.face);
+			obj.face_at(_direction);
+			obj.image_speed = _image_speed;
+			obj.image_index = _index;
 		}
 		end_action();
 	})

@@ -4,16 +4,17 @@ function set_sprite(_name,_val) {
 	struct_set(sprite,_name,is_array(_val) ? _val : [_val])	
 }
 
-function get_sprite(_name,_index=0) {
+function get_sprite(_name,_index=0,_sprite_tag="") {
 	if (struct_exists(sprite,_name)) {
-		return struct_get(sprite,_name)[_index];
+		var asst = asset_get_index(sprite_get_name(struct_get(sprite,_name)[_index])+_sprite_tag);
+		if (asset_get_type(asst) == asset_sprite) {return asst};
 	}
 	return sprite_index;
 };
 
-function face_at(_direction,_index=undefined) {
+function face_at(_direction,_index=undefined,_sprite_tag="") {
 	face = direction_to_face(_direction);
-	sprite_index = get_sprite(face,_index);
+	sprite_index =  get_sprite(face,_index,_sprite_tag);
 };
 
 function look_at_player() {

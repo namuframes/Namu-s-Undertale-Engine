@@ -18,8 +18,7 @@ _border = {
 }
 
 prepare_gui = function(width,height,_x=0,_y=0,multiplier=2) {
-	var b = room == rm_battle ? .5 : 1
-	var f = min(window_get_width()/width,window_get_height()/height)*b;
+	var f = min(window_get_width()/width,window_get_height()/height);
 	display_set_gui_maximise(f*multiplier,f*multiplier,_x,_y);
 }
 

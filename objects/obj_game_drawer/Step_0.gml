@@ -14,7 +14,7 @@ if (global.border) {
 	var no_border_rooms = [];
 	if (array_get_index(no_border_rooms,room) >= 0) {border_set_sprite(spr_border)} else {
 		switch(string_get_suffix(room_get_name(room),1)) {
-			case "cave":	border_set_sprite(spr_border_cave)	break;
+			case "": break;
 		};
 	};
 } else {

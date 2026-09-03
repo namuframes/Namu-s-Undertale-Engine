@@ -1,7 +1,4 @@
 /// @description Seting box Side
-
-text_info = draw_each_letter(txt.x,txt.y,text[curtxt],,,c_black,lang_font(font),.5,.5,0,length,false,writer);
-
 if (instance_exists(target) && side <= -1) {
 	if (object_get_parent(target.object_index) == parEnemy || target.object_index == parEnemy) {
 		with(target) {

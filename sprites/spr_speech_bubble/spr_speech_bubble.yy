@@ -24,12 +24,12 @@
   "name":"spr_speech_bubble",
   "nineSlice":{
     "$GMNineSliceData":"",
-    "bottom":21,
+    "bottom":19,
     "enabled":true,
     "guideColour":[4294902015,4294902015,4294902015,4294902015,],
     "highlightColour":1728023040,
     "highlightStyle":0,
-    "left":17,
+    "left":15,
     "resourceType":"GMNineSliceData",
     "resourceVersion":"2.0",
     "right":19,
@@ -40,7 +40,7 @@
       0,
       0,
     ],
-    "top":18,
+    "top":16,
   },
   "origin":4,
   "parent":{

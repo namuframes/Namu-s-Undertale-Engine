@@ -11,4 +11,3 @@ function player_cantmove(){
 	instance_exists(obj_pre_battle) ||
 	instance_exists(obj_save_handler)
 }
-

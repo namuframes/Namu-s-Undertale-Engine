@@ -3,5 +3,3 @@ if (array_length(my_box) > 0) {
 		instance_destroy(my_box[i])	
 	}
 }
-
-//show_message("I was destroyed!")

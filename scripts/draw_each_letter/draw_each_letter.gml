@@ -32,7 +32,7 @@ function draw_each_letter(_x,_y,text,separation=0,line_spacing=0,color=c_white,f
 		show = _typer.index; 
 		_typer.step();
 	}
-	var wave = [false,2,1], shake = [false,1], z=0
+	var wave = [false,2,1], _shake = [false,1], z=0
 	
 	for(var i = 1; i < length; i++) {
 		var c = string_char_at(text,i), cw = string_width(c);
@@ -128,9 +128,9 @@ function draw_each_letter(_x,_y,text,separation=0,line_spacing=0,color=c_white,f
 				offy += (wave[1]*_xscale)*cos(mth)
 				offx -= (wave[1]*_yscale)*sin(mth)
 			}
-			if (shake[0]) {
-				offx += lengthdir_x(random(shake[1]),random(360))
-				offy += lengthdir_y(random(shake[1]),random(360))
+			if (_shake[0]) {
+				offx += lengthdir_x(random(_shake[1]),random(360))
+				offy += lengthdir_y(random(_shake[1]),random(360))
 			}	
 			
 			draw_text_transformed_colour(final_x+offx,final_y+offy,c,_xscale,_yscale,angle,
