@@ -91,15 +91,16 @@ switch(TURN) {
 	case BATTLE_TURNS.PLAYER:
 		switch(page.current) {
 			case BATTLE_PAGES.MAIN:
-				if (!READY) {exit};
-				set_controls((input_pressed(INPUT_RIGHT)-input_pressed(INPUT_LEFT)),array_length(buttons)-1);
-				var _action = buttons[index.current];
-				if (!_action.selectable) {index.current += index.input}
-				if (input_pressed(INPUT_CONFIRM)) {
-					if (buttons[index.current].selectable) {
-						with(buttons[index.current]) {event_user(3)};
-					} else {audio_play_sound(snd_deny,0,false)};
-				};
+				if (READY) {
+					set_controls((input_pressed(INPUT_RIGHT)-input_pressed(INPUT_LEFT)),array_length(buttons)-1);
+					var _action = buttons[index.current];
+					if (!_action.selectable) {index.current += index.input}
+					if (input_pressed(INPUT_CONFIRM)) {
+						if (buttons[index.current].selectable) {
+							with(buttons[index.current]) {event_user(3)};
+						} else {audio_play_sound(snd_deny,0,false)};
+					};
+				}
 			break;
 			
 			case BATTLE_PAGES.ACT:
@@ -223,8 +224,8 @@ if (page.current != prev_page) {
 with(par_bt_button) {
 	var bt = other.buttons[other.index.current]
 	var pg = other.page.current == BATTLE_PAGES.MAIN
-	hovering = bt == id && pg;
-	if (hovering) {
+	hovering = (bt == id && pg);
+	if (hovering || !other.READY) {
 		with(other) {set_heart(other.x+18,other.y+20)};
 	}
 }

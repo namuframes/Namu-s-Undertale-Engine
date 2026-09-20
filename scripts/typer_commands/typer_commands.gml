@@ -21,8 +21,8 @@ var portrait = function(character="",face=undefined) {
 	creator.set_portrait(character,face);
 };
 
-var blip = function(snd=undefined) {
-	mod_blip = asset_get_index(snd);
+var blip = function(_voice=undefined) {
+	voice = _voice;
 };
 
 var sound = function(snd) {
