@@ -25,7 +25,7 @@ function set_action(_name,_script=undefined,index=array_length(action)) {
 function show_hp(boolean = (hp_previous != hp)) { //Use this on DRAWs!
 	if (boolean) { //If condition is meet, execute the code!
 		//Fake hp is used on the HP bar to do the cool hp drain effect
-		do_tween(id,"hpTween","fakehp",hp,EASE_LINEAR,2)	
+		tween(id,"hpTween","fakehp",hp,EASE_LINEAR,2)	
 		//Drawing the HP bar
 		if (is_numeric(damage_taken)) {
 			draw_hp(hpbar.x, hpbar.y,hpbar.width,hpbar.height,fakehp,hpmax,c_lime,#4C4C4C); //Drawing the hp bar

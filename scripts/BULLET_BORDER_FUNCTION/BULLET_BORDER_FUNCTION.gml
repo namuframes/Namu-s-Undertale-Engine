@@ -1,11 +1,11 @@
 function box_size(_width=undefined,_height=undefined,_x=undefined,_y=undefined, angle=undefined, ease_type=EASE_LINEAR,spd=3, destroy_method=function(){}){
 	var tag = "bulletBorder.";
 	with (obj_bulletBorder) {
-		if (is_numeric(_width))		{do_tween(id,tag+"width","width",_width,ease_type,spd,,destroy_method)};
-		if (is_numeric(_height))	{do_tween(id,tag+"height","height",_height,ease_type,spd,,destroy_method)};
-		if (is_numeric(_x))			{do_tween(id,tag+"x","x",_x,ease_type,spd,,destroy_method)};
-		if (is_numeric(_y))			{do_tween(id,tag+"y","y",_y,ease_type,spd,,destroy_method)};
-		if (is_numeric(angle))		{do_tween(id,tag+"angle","image_angle",angle,ease_type,spd,,destroy_method)};
+		if (is_numeric(_width))		{tween(id,tag+"width","width",_width,ease_type,spd,,destroy_method)};
+		if (is_numeric(_height))	{tween(id,tag+"height","height",_height,ease_type,spd,,destroy_method)};
+		if (is_numeric(_x))			{tween(id,tag+"x","x",_x,ease_type,spd,,destroy_method)};
+		if (is_numeric(_y))			{tween(id,tag+"y","y",_y,ease_type,spd,,destroy_method)};
+		if (is_numeric(angle))		{tween(id,tag+"angle","image_angle",angle,ease_type,spd,,destroy_method)};
 	}
 }
 

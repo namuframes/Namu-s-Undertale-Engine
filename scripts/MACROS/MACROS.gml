@@ -10,6 +10,8 @@
 #macro WINDOW_WIDTH (BASE_WIDTH*2)
 #macro WINDOW_HEIGHT (BASE_HEIGHT*2)
 
+
+
 #macro BORDER_WIDTH (1920/2)
 #macro BORDER_HEIGHT (1080/2)
 
@@ -23,6 +25,7 @@
 
 #macro NATIVE_FPS 30
 #macro FPS 30
+#macro TIME (get_timer()/100000)
 
 #macro CMD_START "<"
 #macro CMD_END ">"

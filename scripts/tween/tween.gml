@@ -1,4 +1,4 @@
-function do_tween(_object, _tag, _var, _value, _type, _speed, overwrite=true,destroy_method=undefined) {
+function tween(_object, _tag, _var, _value, _type, _speed, overwrite=true,destroy_method=undefined) {
 	var t = noone
 	with (obj_tweenHandler) {
 	    if (variable_instance_exists(id, string(_tag))) {

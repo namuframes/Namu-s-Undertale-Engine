@@ -42,8 +42,8 @@ switch(state) {
 		if (obj_battle_control.TURN != BATTLE_TURNS.PLAYER_INIT) {
 			var ease = EASE_LINEAR
 			if (tween_go) {
-				do_tween(id,"posx_soulX_prepare_battle","soul_x",obj_soul.x,ease,2)
-				do_tween(id,"posx_soulY_prepare_battle","soul_y",obj_soul.y,ease,2)
+				tween(id,"posx_soulX_prepare_battle","soul_x",obj_soul.x,ease,2)
+				tween(id,"posx_soulY_prepare_battle","soul_y",obj_soul.y,ease,2)
 				tween_go=false
 			}
 			tween_set_value("posx_soulX_prepare_battle",obj_soul.x)

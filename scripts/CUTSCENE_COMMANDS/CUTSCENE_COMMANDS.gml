@@ -98,7 +98,7 @@ function c_sound(soundid,priority,loops,gain=1,offset=0,pitch=1) {
 function c_tween(obj,tag,_var,value,type,speed) {
 	c_cmd([obj,tag,_var,value,type,speed],
 	function(obj,tag,_var,value,type,speed) {
-		var _tweenInstance = do_tween(obj,tag,_var,value,type,speed)
+		var _tweenInstance = tween(obj,tag,_var,value,type,speed)
 		array_push(tween_list,_tweenInstance)
 		end_action();
 	})	
@@ -156,11 +156,13 @@ function c_face_at(obj, _direction,_index=0,_image_speed=0) {
 	})
 }
 
-function c_canMove(_bool) {
-	c_cmd([_bool],
-	function(_bool) {
+function c_canMove(_bool, _wait_to_ready=true) {
+	c_cmd([_bool,	_wait_to_ready],
+	function(_bool,	_wait_to_ready) {
 		player_nocontrol = !_bool
-		end_action();
+		if (instance_exists(obj_player) && _wait_to_ready) {
+			if (obj_player.ready_to_cutscene) {end_action()};	
+		} else {end_action()};
 	})
 }
 

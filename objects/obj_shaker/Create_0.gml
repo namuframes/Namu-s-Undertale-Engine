@@ -7,3 +7,5 @@ range = 10;
 time = 1;
 
 alarm[0] = 1;
+
+subtract = 2;

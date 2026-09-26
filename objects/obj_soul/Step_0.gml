@@ -1,6 +1,3 @@
-
-
-
 if (invincible > 0) {
 	image_speed = 1;
 	invincible -= 1*DELTA();

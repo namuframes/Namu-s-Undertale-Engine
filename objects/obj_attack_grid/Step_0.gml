@@ -2,8 +2,8 @@ var old_state = state;
 switch(state) {
 	case ATTACK_STATE.INTRO:
 		if (oneshot) {
-			do_tween(id,"introX","image_xscale",1,EASE_LINEAR,1);
-			do_tween(id, "introY","image_yscale",1,EASE_LINEAR,1);
+			tween(id,"introX","image_xscale",1,EASE_LINEAR,1);
+			tween(id, "introY","image_yscale",1,EASE_LINEAR,1);
 			oneshot=false;
 		}
 		image_alpha += .05*(image_alpha < 1)
@@ -72,8 +72,8 @@ switch(state) {
 	case ATTACK_STATE.OUTRO:
 			if (oneshot) {
 				instance_destroy(obj_target_mark)
-				do_tween(id, "outroX","image_xscale",0,EASE_LINEAR,2);
-				do_tween(id, "outroY","image_yscale",1,EASE_LINEAR,2);
+				tween(id, "outroX","image_xscale",0,EASE_LINEAR,2);
+				tween(id, "outroY","image_yscale",1,EASE_LINEAR,2);
 
 				oneshot=false;
 			}

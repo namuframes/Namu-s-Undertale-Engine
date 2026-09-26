@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"do_tween",
+  "%Name":"fade",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"do_tween",
+  "name":"fade",
   "parent":{
     "name":"Scripts",
     "path":"folders/ENGINE/Scripts.yy",
