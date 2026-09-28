@@ -18,3 +18,5 @@ fadein_end = undefined
 fadeout_start = undefined
 
 step = undefined
+
+freeze_player = false

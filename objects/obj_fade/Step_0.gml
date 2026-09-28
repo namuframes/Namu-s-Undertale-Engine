@@ -2,15 +2,17 @@ var fadein_tag	=  $"{id}_FADEIN"
 var fadeout_tag	= $"{id}_FADEOUT"
 switch(state) {
 	case 0: //Fading in
-		if (oneshot) {
-			tween(id,fadein_tag,"alpha",1,fadein_ease,fadein_speed);
-			oneshot=false;	
-		}
-		if (!tween_exists(fadein_tag)) { //End
-			alpha = 1;
-			state++;
-			if (is_method(fadein_end)) {script_execute(fadein_end)};
-		}
+		if (fadein_speed > 0) {
+			if (oneshot) {
+				tween(id,fadein_tag,"alpha",1,fadein_ease,fadein_speed);
+				oneshot=false;	
+			}
+			if (!tween_exists(fadein_tag)) { //End
+				alpha = 1;
+				state++;
+				if (is_method(fadein_end)) {script_execute(fadein_end)};
+			}
+		};
 	break;
 	
 	case 1: //Waiting...
@@ -21,11 +23,14 @@ switch(state) {
 	break;
 	
 	case 2: //Fading out
-		if (oneshot) {
-			tween(id,fadeout_tag,"alpha",0,fadeout_ease,fadeout_speed);
-			oneshot=false;	
+		if (fadeout_speed > 0) {
+			if (oneshot) {
+				tween(id,fadeout_tag,"alpha",0,fadeout_ease,fadeout_speed);
+				oneshot=false;	
+			};
+			if (alpha <= 0.5) {freeze_player = false}
+			if (!tween_exists(fadeout_tag)) {instance_destroy()};
 		}
-		if (!tween_exists(fadeout_tag)) {instance_destroy()};
 	break;
 };
 	

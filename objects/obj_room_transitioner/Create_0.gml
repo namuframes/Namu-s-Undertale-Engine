@@ -6,5 +6,4 @@ destiny = {
 	y: global.saved_player.y,
 	object: undefined
 }
-
 alarm[0] = 1;

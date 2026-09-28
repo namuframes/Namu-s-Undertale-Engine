@@ -33,5 +33,7 @@ global.region = string_get_suffix(room_get_name(room))
 
 global.room_player_info = ds_map_create()
 
+global.intransition = false;
+
 item_add(new item_toy_knife())
 item_add(new item_bandage())

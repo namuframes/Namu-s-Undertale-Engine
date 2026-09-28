@@ -47,7 +47,7 @@ function draw_each_letter(_x,_y,text,separation=0,line_spacing=0,color=c_white,f
 			var _end = string_pos_ext(CMD_END,text,i);
 			var arg = string_split(string_copy(text,i+1,_end-i-1),",")
 			var arg_length = array_length(arg)-1
-			if (asset_get_type(arg[0]) == -1) {
+			if (!array_contains([asset_font, asset_sprite], asset_get_type(arg[0]))) {
 				if (string_char_at(arg[0],1) != "#") {
 					switch(arg[0]) {
 						case "c_red": case "red":     draw_set_color(c_red) break;
@@ -66,9 +66,9 @@ function draw_each_letter(_x,_y,text,separation=0,line_spacing=0,color=c_white,f
 							if (arg_length >= 2) {wave[2] = real(arg[2])};
 						break;
 						
-						case "shake": case "sh":
-							shake[0] = !shake[0]
-							if (arg_length >= 1) {shake[1] = real(arg[1])};
+						case "shake": case "tr":
+							_shake[0] = !_shake[0]
+							if (arg_length >= 1) {_shake[1] = real(arg[1])};
 						break;
 					}
 				} else {
@@ -129,9 +129,11 @@ function draw_each_letter(_x,_y,text,separation=0,line_spacing=0,color=c_white,f
 				offx -= (wave[1]*_yscale)*sin(mth)
 			}
 			if (_shake[0]) {
-				offx += lengthdir_x(random(_shake[1]),random(360))
-				offy += lengthdir_y(random(_shake[1]),random(360))
-			}	
+				var rndm = random_range(TIME/2,TIME)
+				var s = choose(-_shake[1],-(_shake[1]/2),_shake[1]/2,_shake[1])
+				offx += s*cos(rndm)
+				offy += s*sin(rndm)
+			};
 			
 			draw_text_transformed_colour(final_x+offx,final_y+offy,c,_xscale,_yscale,angle,
 			draw_get_colour(),draw_get_colour(),draw_get_colour(),draw_get_colour(),draw_get_alpha());

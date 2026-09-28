@@ -1,4 +1,4 @@
-fade(c_black,2*fadein_speed,2*fadeout_speed,EASE_LINEAR,EASE_LINEAR,,
+fade(c_black,2*fadein_speed,2*fadeout_speed,LAYER.UI-999,true,EASE_LINEAR,EASE_LINEAR,,
 function() {	//Fade in end
 	destiny = creator.destiny
 	room_goto(destiny.rm)
@@ -25,6 +25,7 @@ function() { //FadeOut Start
 		obj_player.x = destiny.x;
 		obj_player.y = destiny.y;
 	}
+	
 });
 
 instance_destroy();

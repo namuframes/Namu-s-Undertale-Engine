@@ -6,7 +6,8 @@ if (global.debug) {
 	txt += $"fps: {fps}\n"
 	txt += $"Region: {global.region}\n"
 	txt += $"Region_kills: {global.region_kills[? global.region]}\n"
-	txt += $"Language Font: {global.LANG_FONT}"
+	txt += $"Language Font: {global.LANG_FONT}\n"
+	txt += $"Transition: {global.intransition}"
 	draw_text_transformed(2,2,txt,.5,.5,0)
 	draw_set_font(-1)
 }

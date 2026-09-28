@@ -9,20 +9,24 @@ function add_face(name,sprite,_sprite_talk=sprite,_talk_speed=1, _idle_speed=0,_
 };
 
 draw = function(_x,_y) {
+	_x += offset_x; _y += offset_y
 	if (ds_map_exists(sprite_faces,face)) {
 		var mp = sprite_faces[? face]
-		sprite_index = !talking ? mp.sprite_idle : mp.sprite_talk
 		var _index = mp.index;
 		if (talking) {
+			sprite_index = mp.sprite_talk;
 			image_speed = mp.talk_speed
 		} else {
-			if (floor(image_index) <= 0) {image_speed=mp.idle_speed}
+			if (floor(image_index) <= 0) {
+				sprite_index = mp.sprite_idle
+				image_speed=mp.idle_speed
+			}
 		}
-		draw_sprite_ext(sprite_index,image_index+_index,_x+offset_x,_y+offset_y,image_xscale,image_yscale,image_angle,image_blend,image_alpha);
+		draw_sprite_ext(sprite_index,image_index+_index,_x,_y,image_xscale,image_yscale,image_angle,image_blend,image_alpha);
 	} else {
 		draw_lang_font(fnt_main);
 		draw_set_halign(fa_center); draw_set_valign(fa_center); 
-		draw_text_transformed(_x+offset_x,_y+offset_y,$"\"{face}\" not\nfound",.5,.5,0)
+		draw_text_transformed(_x,_y,$"\"{face}\" not\nfound",.5,.5,0)
 		draw_set_font(-1); draw_set_halign(fa_left); draw_set_valign(fa_top); 
 	}
 };
