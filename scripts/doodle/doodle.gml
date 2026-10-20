@@ -1,3 +1,5 @@
+global.__doodle_cache = {};
+
 function doodle(_text,_separation=0,_line_spacing=0,
 _color=draw_get_colour(),_font=draw_get_font(),
 _xscale=1,_yscale=1,_angle=0, _line_length=infinity, _spacing_char="",

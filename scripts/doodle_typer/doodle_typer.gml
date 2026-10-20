@@ -22,36 +22,31 @@ function doodle_typer() constructor{
 	
 	speed=1
 	
-	static sound = function(_soundasset) {
-		voice = _soundasset;	
-	}
+	static sound = function(_soundasset) {voice = _soundasset};
 	
-	static length = function() {return array_length(input)}
+	static length = function() {return array_length(input)};
 	
 	static get_input = function(_val=pos()) {
 		if (length() > 0) {
 			return input[clamp(_val,0,length()-1)];
 		} else {return {char: ""}};
-	}
+	};
 	static get_command = function() {
-		if (has_command()) {
-			return get_input().cmd 
-		}
-	}
+		if (has_command()) {return get_input().cmd};
+	};
+	
 	static reset = function() {prepare()};
 	
-	static has_command = function() {return struct_exists(get_input(),"cmd")}
+	static has_command = function() {return struct_exists(get_input(),"cmd")};
 
-	static char = function(offset=0) {
-		return get_input(pos()-1+offset).char;
-	}
+	static char = function(offset=0) {return get_input(pos()-1+offset).char};
 	
 	static add_index = function(amount) {
 		index += amount
 		if (pos() > length()) {index = length()};
 	}
 		
-	static set_wait = function(amount) {wait.time += amount*10};
+	static set_wait = function(amount) {wait.time += amount*D_WAIT_DEFAULT_TIME};
 	
 	static pos = function() {return floor(clamp(index,0,length()))};
 	static position = function() {return pos()};
@@ -84,12 +79,9 @@ function doodle_typer() constructor{
 					if (string_count(char(),D_AUTOPAUSE_CHAR) >= 1 && char() != "") {set_wait(.5)};
 				}
 			} else {
-				wait.time -= (wait.time>0)
-				if (wait.time <= 0 && wait.input) {
-					if (input_pressed(INPUT_CONFIRM)) {
-						wait.input = false;	
-					}
-				}
+				if (wait.time <= 0) {
+					if (input_pressed(INPUT_CONFIRM) && wait.input) {wait.input = false}
+				} else {wait.time -= (wait.time>0)*speed}
 			};
 			
 			
