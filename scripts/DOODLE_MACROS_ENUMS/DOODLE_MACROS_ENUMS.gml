@@ -5,7 +5,7 @@
 #macro D_TEXT_MAP "__DOODLE_STRING_MAP"
 #macro D_NO_BLIP_STRING " !\"#$%&'()+,-/:;<=>?@[]^_`{|}~ ¢£¤¥¦§¨©ª«¬­®¯°±´µ¶·¸º»"
 #macro D_TIME (get_timer()/100000)
-#macro D_RESOLUTION 2
+#macro D_RESOLUTION RESOLUTION
 #macro D_AUTOPAUSE_CHAR ",.;"
 #macro D_WAIT_DEFAULT_TIME 10
 
