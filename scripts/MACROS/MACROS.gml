@@ -10,7 +10,7 @@
 #macro WINDOW_WIDTH (BASE_WIDTH*2)
 #macro WINDOW_HEIGHT (BASE_HEIGHT*2)
 
-
+#macro LIVE if (live_call()) {return live_result}
 
 #macro BORDER_WIDTH (1920/2)
 #macro BORDER_HEIGHT (1080/2)
@@ -35,8 +35,8 @@
 #macro WAVE_DEFAULT_RANGE 2
 
 #macro DEFAULT_INPUTDELAY 1
-
-#macro fnt_hachiro font_add_sprite_ext(spr_hachiro,"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!?().,",true,0)
+global.hachiro = font_add_sprite_ext(spr_hachiro,"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!?().,",true,0)
+#macro fnt_hachiro global.hachiro
 
 #macro EASE_LINEAR "linear"
 #macro EASE_OUT "out"

@@ -14,7 +14,7 @@
   "name":"rm_shop",
   "parent":{
     "name":"Rooms",
-    "path":"folders/Rooms.yy",
+    "path":"folders/ENGINE/Rooms.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

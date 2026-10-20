@@ -20,7 +20,7 @@ for(var i = 0; i < array_length(options); i++) {
 	var c = TEXTconfig.color;
 	if (!options[i].selectable) {c = c_gray};
 
-	draw_each_letter(position.x,position.y,options[i].name,,,c,lang_font(fnt_main))
+	doodle_draw(position.x,position.y,options[i].name,,,c,,lang_font(fnt_main));
 
 	if (index == i) set_heart(position.x-14,position.y+4)
 }

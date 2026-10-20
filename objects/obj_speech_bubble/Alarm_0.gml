@@ -24,3 +24,4 @@ if (instance_exists(target) && side <= -1) {
 }
 update_bubble()
 update_side()
+ready = true;

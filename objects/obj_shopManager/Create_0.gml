@@ -12,10 +12,10 @@ page.current = -1
 
 buy_speak = "";
 
-main_text = new typer()
+main_text = new doodle_typer()
 main_text.skipable = false
 
-right_text = new typer()
+right_text = new doodle_typer()
 right_text.skipable = false
 
 buy_state = 0

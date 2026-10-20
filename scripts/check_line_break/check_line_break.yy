@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"check_line_break",
   "parent":{
-    "name":"TEXT",
-    "path":"folders/ENGINE/Scripts/TEXT.yy",
+    "name":"Usefull",
+    "path":"folders/DOODLE/Scripts/Usefull.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

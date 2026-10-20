@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"DOODLE_MACROS_ENUMS",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"DOODLE_MACROS_ENUMS",
+  "parent":{
+    "name":"Config",
+    "path":"folders/DOODLE/Scripts/Config.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

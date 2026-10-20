@@ -15,7 +15,7 @@ if (state == STATE.free) {
 }
 
 if (follow_border) {
-	x += obj_bulletBorder.x - obj_bulletBorder.xprevious
-	y += obj_bulletBorder.y - obj_bulletBorder.yprevious	
+	x += obj_battle_box.x - obj_battle_box.xprevious
+	y += obj_battle_box.y - obj_battle_box.yprevious	
 }
 

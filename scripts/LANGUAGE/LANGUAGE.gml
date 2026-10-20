@@ -1,5 +1,12 @@
 #macro DEFAULT_LANGUAGE "English"
 
+global.LANG = DEFAULT_LANGUAGE;
+global.LANG_BASE_MAP = {};
+global.LANG_TEXT = {};
+global.LANG_FONT = {};
+global.LANG_SPRITES = {};
+global.AVAILABLE_LANG = [];
+
 function directory_files(path, filter) {
 	var result = array_create(0);
 	var count = 0;
@@ -36,17 +43,10 @@ function directory_files(path, filter) {
 }
 
 function json_to_string(file_path) {
-    var file = file_text_open_read(file_path);
-    var output = "";
-
-    while (!file_text_eof(file)) {
-        output += file_text_read_string(file);
-        file_text_readln(file);
-    }
-
-    file_text_close(file);
-
-    return string_trim(output);
+	var buff = buffer_load(file_path);
+	var str = buffer_read(buff, buffer_text);
+	buffer_delete(buff);
+	return str;
 }
 
 function lang_directory(lang=global.LANG,folder="") {return $"{working_directory}/lang/{string_lower(lang)}/{folder}/";}
@@ -57,7 +57,7 @@ function __create_template(filepath,_start="", _middle="", _end="") {
 		var f = file_text_open_write(filepath)
 		file_text_write_string(f, _start);
 		file_text_writeln(f)
-		file_text_write_string(f, _middle)
+		file_text_write_string(f, "	"+_middle)
 		file_text_writeln(f)
 		file_text_write_string(f, _end);
 		file_text_close(f);
@@ -72,6 +72,7 @@ function lang_map_update() {
 	global.LANG_TEXT={};
 	global.LANG_SPRITES={};
 	global.LANG_FONT={};
+	global.LANG_CACHED_TEXT = {};
 	if (directory_exists(lang_directory(global.LANG))) {
 		// fonts config
 		var config_path = $"{lang_directory(,"fonts")}config.json";
@@ -85,7 +86,7 @@ function lang_map_update() {
 				if (!struct_exists(global.LANG_FONT,name)) {struct_set(global.LANG_FONT,name,{})};
 			
 				file = $"{lang_directory(,"fonts")}{files[i]}"
-				size = struct_exists(global.LANG_FONT[$ name],"size") ? global.LANG_FONT[$ name].size : 10
+				size = struct_exists(global.LANG_FONT[$ name],"size") ? global.LANG_FONT[$ name].size : 12
 				struct_set(global.LANG_FONT[$ name],"font",font_add(file,size,false,false,32,128))
 			}
 		} else if (DEVELOPER_MODE) {
@@ -125,7 +126,7 @@ function lang_setup() {
 		prepare_directory("sprites",DEFAULT_LANGUAGE);
 		prepare_directory("fonts",DEFAULT_LANGUAGE);
 
-		__create_json_template(lang_file(DEFAULT_LANGUAGE))
+		__create_json_template(lang_file(DEFAULT_LANGUAGE),"{","\"Text\": \"Text Example\"","}")
 	}
 
 	if (file_exists(lang_file(DEFAULT_LANGUAGE))) {
@@ -134,14 +135,34 @@ function lang_setup() {
 	lang_map_update();
 }
 
-function lang_text(key="") {
-	if (struct_exists(global.LANG_TEXT,key)) {
-		return global.LANG_TEXT[$ key]
-	} else if (struct_exists(global.LANG_BASE_MAP,key)) {
-		return global.LANG_BASE_MAP[$ key]
+function lang_text(key = "") {
+	if (struct_exists(global.LANG_CACHED_TEXT,key)) { //Already cached the text before, so get the cached text (Optization cool)
+		return global.LANG_CACHED_TEXT[$ key]
+	} else { //Text wasn't chached before, let's grab it an all
+		var parts = string_split(key, ".");
+		var sources = [global.LANG_TEXT, global.LANG_BASE_MAP];
+	
+		for (var s = 0; s < array_length(sources); s++) {
+			var node = sources[s];
+			var found = true;
+		
+			for (var i = 0; i < array_length(parts); i++) {
+				if (is_struct(node) && struct_exists(node, parts[i])) {
+					node = node[$ parts[i]];
+				} else {
+					found = false;
+					break;
+				}
+			}
+		
+			if (found) {
+				global.LANG_CACHED_TEXT[$ key] = node; //We cached the text for next calls (Optimization i'm so happy)
+				return node
+			};
+		}
 	}
-
-	return $"Key \"{key}\" not found in \"{string_replace(lang_file(),working_directory+"/","")}\"";
+	
+	return $"Key \"{key}\" not found in \"{string_replace(lang_file(), working_directory + "/", "")}\"";
 }
 
 function lang_sprite(sprite_asset) {
@@ -169,15 +190,14 @@ function lang_font(font) {
 
 	return font //Font wasn't found, return the input font
 }
+	
+function lang_set(_language) {
+	global.LANG = _language;
+	lang_setup();
+}
 
 function draw_lang_font(_font) {
 	draw_set_font(lang_font(_font))	
 }
 
-global.LANG = DEFAULT_LANGUAGE;
-global.LANG_BASE_MAP = {};
-global.LANG_TEXT = {};
-global.LANG_FONT = {};
-global.LANG_SPRITES = {};
-global.AVAILABLE_LANG = [];
-lang_setup();
+lang_set(DEFAULT_LANGUAGE)

@@ -5,7 +5,7 @@ for (var i = 0; i < _num; i++) {
 	with(parDepth) {
 		if (!exception)	{
 			_grid[# 0, i] = id;
-			_grid[# 1, i] = bbox_bottom;
+			_grid[# 1, i] = bbox_top+sprite_height/2;
 			i++;
 		}
 	}

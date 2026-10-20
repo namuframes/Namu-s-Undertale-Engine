@@ -13,7 +13,7 @@ update_side = function() {
 
 	switch(side) {
 		default: //Right
-			length = room_width-(__p);
+			length = room_width-__p;
 			if (instance_exists(t)) {
 				x = right+pointer.xoffset;
 				y = centerY;
@@ -37,7 +37,7 @@ update_side = function() {
 			pointer.y = y;
 			pointer.angle = 0;
 			pointer.flipx = true;
-			length = -__p;
+			length = room_width-(__p*1.89);
 			
 			bubble.x = ((pointer.x-pointer.xoffset)-width)+outline_size*0.5;
 			bubble.y = pointer.y-height*.5+2
@@ -81,14 +81,12 @@ update_side = function() {
 
 update_bubble = function() {
 	draw_lang_font(font)
-	var map = text_info;
 	pointer.x = x;
 	pointer.y = y;
-	
 	var extra_w = string_width("W")*1.6
 	var extra_h = string_height("I")*1.6
-	width = max(map.width,sprite_get_width(spr_speech_bubble))+txt_offset.x+extra_w
-	height = max(map.height,sprite_get_height(spr_speech_bubble))+txt_offset.y+extra_h
+	width = max(txthandler.width,sprite_get_width(spr_speech_bubble))+txt_offset.x+extra_w
+	height = max(txthandler.height,sprite_get_height(spr_speech_bubble))+txt_offset.y+extra_h
 
 	update_side();
 	
@@ -123,7 +121,7 @@ curtxt = 0
 target = undefined
 font = fnt_dotum
 
-writer = new typer()
+writer = new doodle_typer()
 writer.skipable=true
 writer.sound(snd_txt1)
 
@@ -160,4 +158,6 @@ txt = {
 	x: 0,
 	y: 0
 }
+txthandler = undefined;
 alarm[0] = 1;
+ready = false;

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"is_command",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"is_command",
+  "parent":{
+    "name":"Usefull",
+    "path":"folders/DOODLE/Scripts/Usefull.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

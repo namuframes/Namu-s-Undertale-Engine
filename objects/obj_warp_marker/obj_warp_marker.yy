@@ -9,7 +9,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"MARKERS",
-    "path":"folders/Objects/OVERWORLD/MARKERS.yy",
+    "path":"folders/Objects/OVERWORLD/USEFULL/MARKERS.yy",
   },
   "parentObjectId":null,
   "persistent":false,

@@ -1,1 +1,1 @@
-ds_map_destroy(sprite_faces)
+ds_map_destroy(sprite_faces);

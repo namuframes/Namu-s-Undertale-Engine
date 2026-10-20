@@ -1,0 +1,12 @@
+{
+  "$GMShader":"",
+  "%Name":"sh_doodle_outline",
+  "name":"sh_doodle_outline",
+  "parent":{
+    "name":"Shaders",
+    "path":"folders/DOODLE/Shaders.yy",
+  },
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
+}

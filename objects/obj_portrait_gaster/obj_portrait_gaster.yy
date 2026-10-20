@@ -9,7 +9,7 @@
   "overriddenProperties":[
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"parPortrait","path":"objects/parPortrait/parPortrait.yy",},"propertyId":{"name":"offset_x","path":"objects/parPortrait/parPortrait.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"3",},
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"parPortrait","path":"objects/parPortrait/parPortrait.yy",},"propertyId":{"name":"offset_y","path":"objects/parPortrait/parPortrait.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"8",},
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"parPortrait","path":"objects/parPortrait/parPortrait.yy",},"propertyId":{"name":"voice","path":"objects/parPortrait/parPortrait.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"gaster",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"parPortrait","path":"objects/parPortrait/parPortrait.yy",},"propertyId":{"name":"voice","path":"objects/parPortrait/parPortrait.yy",},"resource":{"name":"snd_txtgaster","path":"sounds/snd_txtgaster/snd_txtgaster.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"snd_txtgaster",},
   ],
   "parent":{
     "name":"PORTRAIT",

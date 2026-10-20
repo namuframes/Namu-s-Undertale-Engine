@@ -25,7 +25,6 @@ global.fullscreen = false;
 
 global.ENCOUNTER_ID = ENCOUNTER_ID.SPECIAL_WHIMSUN;
 global.debug = false;
-global.border = false;
 
 global.region_kills = ds_map_create();
 global.region_population = ds_map_create();
@@ -37,3 +36,8 @@ global.intransition = false;
 
 item_add(new item_toy_knife())
 item_add(new item_bandage())
+item_add(new item_toy_knife())
+item_add(new item_bandage())
+item_add(new item_toy_knife())
+item_add(new item_bandage())
+s = undefined;

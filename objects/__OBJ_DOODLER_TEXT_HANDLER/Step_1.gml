@@ -1,0 +1,1 @@
+if (!being_drawn) {instance_destroy()};	//In case we stopped being used, destroy-self

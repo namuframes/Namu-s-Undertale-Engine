@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"BATTLE_BOX_FUNCTION",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"BATTLE_BOX_FUNCTION",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/ENGINE/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

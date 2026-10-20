@@ -3,8 +3,8 @@ if (draw_on_box) {
 }
 if (instance_exists(obj_soul)) {
 	depth = obj_soul.depth-1
-} else if (instance_exists(obj_bulletBorder)) {
-	depth = obj_bulletBorder.depth-1	
+} else if (instance_exists(obj_battle_box)) {
+	depth = obj_battle_box.depth-1	
 }
 
 hurt = function() {

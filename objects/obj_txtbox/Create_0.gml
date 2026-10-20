@@ -13,7 +13,8 @@ text_draw = function(_x,_y,_length=infinity) {
 		if (asset_get_type(portrait.font) == asset_font) {_font = portrait.font};
 	}
 	if (can_draw) {
-		draw_each_letter(_x,_y,text[curtxt],,,,lang_font(_font),1,1,0,_length,true,writer)
+		doodle_draw(_x,_y,text[curtxt],,,c_white,1,lang_font(_font),1,1,0,_length,"*",1,c_black,writer)
+		//draw_each_letter(_x,_y,text[curtxt],,,,lang_font(_font),1,1,0,_length,true,writer)
 	}
 	
 	if (array_length(questions) > 2 ? !can_draw : true) {
@@ -42,10 +43,10 @@ text_draw = function(_x,_y,_length=infinity) {
 					__y = _y+centerY+sh*0.4
 					__x = centerX-sw*0.3;
 					var gapx = max(_heartSpace,sw);
-					if (i == 0) {__x = _x+_heartSpace};
+					if (i == 0) {__x = _x+_heartSpace}
 					else if (i == 1) {__x = (_x+(box_width-_x))-gapx}
 					else if (i == 2) {__y = _y+sh}
-					else if (i == 3) {__y = _y+(box_height)-sh}
+					else if (i == 3) {__y = _y+(box_height)-sh};
 				}
 			    draw_text_colour(__x, __y-sh, txt, c, c, c, c, 1);
 				if (question_index == i) {
@@ -93,10 +94,9 @@ set_portrait = function(input="",face=undefined) {
 		writer.sound(portrait.voice)
 		if (is_string(face)) {portrait.face = face};
 	} else {
-		writer.sound("")	
+		writer.sound(voice)	
 	};
 };
-
 
 top = get_if_top()
 
@@ -109,13 +109,13 @@ if (room == rm_battle) {type = BOX_TYPE.battle}
 text = [];
 curtxt = 0;
 
-voice = "";
+voice = snd_txt1;
 	
 portrait = noone;
 
 font = fnt_main_mono;
 
-writer = new typer();
+writer = new doodle_typer();
 writer.skipable = true;
 writer.sound(voice)
 

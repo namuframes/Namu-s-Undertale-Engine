@@ -8,7 +8,7 @@ function create_enemies() {
 		enemy[i] = instance_create_depth(0,0,depth+20,enemy[i]);
 		with(enemy[i]) {
 			x += (centerX-((sprite_width+space)*length)/2)+pw;
-			y += obj_bulletBorder.bbox_top-sprite_height;
+			y += obj_battle_box.bbox_top-sprite_height;
 			depth -= i;
 			x += sprite_xoffset; y += sprite_yoffset;
 			xstart = x;	ystart = y;
@@ -29,13 +29,14 @@ function enemy_list(_page=page.current, _show_hp=false) {
 			var name = "* "+enemy[i].name
 			var __x = txt.x+heart_offset.space, __y = txt.y+32*i
 			var c = enemy[i].spareable ? TEXTconfig.color2 : TEXTconfig.color
-			var mp = draw_each_letter(__x,__y,name,,,c,main_font)
+			var d = doodle(name,,,c,main_font)
 			if (index.current == i) {set_heart(__x+heart_offset.x-heart_offset.space,__y+heart_offset.y)}
 			if (_show_hp) {
-				var width = mp.width
+				var width = d.width
 				var hp_x = __x+width+16, hp_y = __y+8
 				draw_hp(hp_x,hp_y,100,16,enemy[i].hp,enemy[i].hpmax,c_lime,c_red)
 			}
+			d.draw(__x,__y);
 		}
 	} else {
 		if (input_pressed(INPUT_CONFIRM)) { //If enter is pressed, go to the setted page and set target enemy
@@ -105,11 +106,11 @@ oneshot = true;
 play_song = true
 
 flavor_text = "* Flavor text"
-flavor_writer = new typer()
-flavor_writer.sound("battle");
+flavor_writer = new doodle_typer()
+flavor_writer.sound(snd_txt2);
 
-win_writer = new typer();
-win_writer.sound("battle");
+win_writer = new doodle_typer();
+win_writer.sound(snd_txt2);
 
 event_user(0)
 

@@ -10,8 +10,8 @@
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_collision","path":"objects/obj_collision/obj_collision.yy",},"propertyId":{"name":"collideable","path":"objects/obj_collision/obj_collision.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"False",},
   ],
   "parent":{
-    "name":"OVERWORLD",
-    "path":"folders/Objects/OVERWORLD.yy",
+    "name":"USEFULL",
+    "path":"folders/Objects/OVERWORLD/USEFULL.yy",
   },
   "parentObjectId":{
     "name":"parActor",

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"doodle_draw_surface",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"doodle_draw_surface",
+  "parent":{
+    "name":"Usefull",
+    "path":"folders/DOODLE/Scripts/Usefull.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

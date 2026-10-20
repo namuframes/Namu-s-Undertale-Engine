@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"DOODLE_TYPER_COMMANDS",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"DOODLE_TYPER_COMMANDS",
+  "parent":{
+    "name":"Config",
+    "path":"folders/DOODLE/Scripts/Config.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -265,3 +265,53 @@ function c_end() {
 		end_action()
 	})
 }
+
+function c_fade(_color, _fadein_speed, _fadeout_speed, 
+_depth=undefined, _freeze_player=undefined,
+_fadein_ease=undefined, _fadeout_ease=undefined, _fade_wait=undefined,	
+_fadein_end=undefined,	_fadeout_start=undefined,	_step=undefined) {
+	c_cmd([_color, _fadein_speed, _fadeout_speed, 
+	_depth, _freeze_player,
+	_fadein_ease, _fadeout_ease, _fade_wait,	
+	_fadein_end,	_fadeout_start,	_step],
+
+	function(_color, _fadein_speed, _fadeout_speed, 
+	_depth, _freeze_player,
+	_fadein_ease, _fadeout_ease, _fade_wait,	
+	_fadein_end,	_fadeout_start,	_step) {
+		fade(_color, _fadein_speed, _fadeout_speed, 
+		_depth, _freeze_player,
+		_fadein_ease, _fadeout_ease, _fade_wait,	
+		_fadein_end,	_fadeout_start,	_step)
+		end_action()
+	})	
+}
+
+function c_fade_out(_speed) {
+	c_cmd([_speed],function(_speed) {
+		with(obj_fade) {
+			fadeout_speed = _speed
+		}
+		end_action();
+	})
+}
+
+function c_wait_fade_out() {
+	c_cmd([],function() {
+		if (instance_exists(obj_fade)) {
+			if (obj_fade.state >= 2 && obj_fade.alpha <= obj_fade.fadeout_speed) {
+				end_action();	
+			}
+		} else {end_action()}
+	})
+}
+
+function c_wait_fade_in() {
+	c_cmd([],function() {
+		if (instance_exists(obj_fade)) {
+			if (obj_fade.state >= 1) {
+				end_action();	
+			}
+		} else {end_action()}
+	})
+}

@@ -4,10 +4,10 @@ function check_line_break(text,number,line_length, precise_width, xscale, char_s
 
 	while (j <= text_length) {
 		var cj = string_char_at(text, j);
-		if (cj == " " || cj == "\n" || cj == LINE_BREAK_CHAR) break;
+		if (cj == " " || cj == "\n" || cj == D_LINE_BREAK_CHAR) break;
 
-		if (cj == CMD_START) {
-			var e = string_pos_ext(CMD_END, text, j);
+		if (cj == D_CMD_START) {
+			var e = string_pos_ext(D_CMD_END, text, j);
 			if (e > 0) {
 			    j = e + 1;
 			    continue;
@@ -18,5 +18,5 @@ function check_line_break(text,number,line_length, precise_width, xscale, char_s
 
 		j++;
 	}
-	return !return_length ? (space + length > line_length) : length 
+	return !return_length ? (space + length >= line_length) : length 
 }

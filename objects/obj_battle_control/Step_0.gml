@@ -8,7 +8,7 @@ while(!array_contains(break_array,TURN) && !stop) {
 	switch(TURN) {
 		case BATTLE_TURNS.PLAYER_INIT:
 			if (box_is_normal()) {
-				if (!instance_exists(obj_soul)) {instance_create_depth(x,y,obj_bulletBorder.depth-1,obj_soul)}
+				if (!instance_exists(obj_soul)) {instance_create_depth(x,y,obj_battle_box.depth-1,obj_soul)}
 				battle_soul_visible(true);
 				battle_soul_state(STATE.follow);
 				battle_soul_variable_set("invincible",0)
@@ -38,7 +38,7 @@ while(!array_contains(break_array,TURN) && !stop) {
 		break;
 		
 		case BATTLE_TURNS.PLAYER_END:
-			if (!instance_exists(obj_soul)) {instance_create_depth(x,y,obj_bulletBorder.depth-1,obj_soul)};
+			if (!instance_exists(obj_soul)) {instance_create_depth(x,y,obj_battle_box.depth-1,obj_soul)};
 			battle_soul_visible(false);
 			battle_soul_state(STATE.follow);
 			//If there isn't any cutscene from the enemies and myself, proceed.
@@ -47,7 +47,7 @@ while(!array_contains(break_array,TURN) && !stop) {
 		
 		case BATTLE_TURNS.TURN_PREPARATION:
 			if (oneshot) {
-				battle_soul_position(obj_bulletBorder.x,obj_bulletBorder.y);
+				battle_soul_position(obj_battle_box.x,obj_battle_box.y);
 				with(parEnemy) {
 					if (on_battle()) {
 						if (dead) {
@@ -147,7 +147,7 @@ switch(TURN) {
 			case BATTLE_PAGES.FIGHT_ACTION:
 				battle_soul_visible(false);
 				if (!instance_exists(obj_attack_grid)) {
-					instance_create_depth(0,0,obj_bulletBorder.depth-1,obj_attack_grid);
+					instance_create_depth(0,0,obj_battle_box.depth-1,obj_attack_grid);
 				};
 				
 				if (obj_attack_grid.state >= ATTACK_STATE.OUTRO) {battle_next_turn()};
@@ -171,7 +171,7 @@ switch(TURN) {
 	case BATTLE_TURNS.TURN:
 		if (oneshot) {//TURN START
 			if (!instance_exists(obj_soul)) {
-				instance_create_depth(obj_bulletBorder.x,obj_bulletBorder.y,obj_bulletBorder.depth-1,obj_soul);
+				instance_create_depth(obj_battle_box.x,obj_battle_box.y,obj_battle_box.depth-1,obj_soul);
 			};
 			battle_soul_state(STATE.free);
 			battle_soul_visible(true);

@@ -24,4 +24,11 @@ addscene(function() {
 		c_dialogue("<face,gaster,blink><spr_facee,*> Awwww geez\nTinkers")
 		c_wait_dialogue()
 	});
+	c_question("What is that?", function() {
+		c_canMove(false);
+		c_dialogue("<talker,obj_gaster><face,gaster>* Think Fast")
+		c_wait_dialogue()
+		c_fade(c_white,100,0.1,0)
+		c_wait_fade_out()
+	});
 })

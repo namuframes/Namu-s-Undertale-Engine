@@ -9,8 +9,8 @@
   "name":"obj_player_interactor",
   "overriddenProperties":[],
   "parent":{
-    "name":"OVERWORLD",
-    "path":"folders/Objects/OVERWORLD.yy",
+    "name":"NON-PLACEABLE",
+    "path":"folders/ENGINE/Objects/NON-PLACEABLE.yy",
   },
   "parentObjectId":null,
   "persistent":false,
