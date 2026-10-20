@@ -2,7 +2,7 @@
   "$GMRedditOptions":"v2",
   "%Name":"Reddit",
   "name":"Reddit",
-  "option_reddit_devvit_project_id":"${project_name}",
+  "option_reddit_devvit_project_id":"Recoded Undertale Engine - Recovered",
   "option_reddit_devvit_project_path":"",
   "option_reddit_display_cursor":true,
   "option_reddit_game_name":"Recoded Undertale Engine",

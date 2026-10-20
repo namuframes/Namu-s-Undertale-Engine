@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"INPUT_SYSTEM",
   "parent":{
-    "name":"Recoded Undertale Engine - Recovered",
-    "path":"Recoded Undertale Engine - Recovered.yyp",
+    "name":"Namu's Undertale Engine",
+    "path":"Namu's Undertale Engine.yyp",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

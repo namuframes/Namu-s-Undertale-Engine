@@ -138,7 +138,7 @@ function lang_setup() {
 function lang_text(key = "") {
 	if (struct_exists(global.LANG_CACHED_TEXT,key)) { //Already cached the text before, so get the cached text (Optization cool)
 		return global.LANG_CACHED_TEXT[$ key]
-	} else { //Text wasn't chached before, let's grab it an all
+	} else { //Text wasn't chached before, let's grab it
 		var parts = string_split(key, ".");
 		var sources = [global.LANG_TEXT, global.LANG_BASE_MAP];
 	
