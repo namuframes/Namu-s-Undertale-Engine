@@ -14,7 +14,6 @@ text_draw = function(_x,_y,_length=infinity) {
 	}
 	if (can_draw) {
 		doodle_draw(_x,_y,text[curtxt],,,c_white,1,lang_font(_font),1,1,0,_length,"*",1,c_black,writer)
-		//draw_each_letter(_x,_y,text[curtxt],,,,lang_font(_font),1,1,0,_length,true,writer)
 	}
 	
 	if (array_length(questions) > 2 ? !can_draw : true) {

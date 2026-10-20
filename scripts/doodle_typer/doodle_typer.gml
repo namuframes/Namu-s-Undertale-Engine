@@ -5,6 +5,8 @@ function doodle_typer() constructor{
 			time: 1,
 			input: false
 		};
+		prev_index = index;
+		blip_delay = 1;
 		if (instance_exists(manager)) {manager.wipe_surfaces()};
 	}
 	manager = noone;
@@ -18,6 +20,8 @@ function doodle_typer() constructor{
 	voice = noone;
 	input = [];
 	autopause = false;
+	
+	
 	prepare();
 	
 	speed=1
@@ -72,29 +76,32 @@ function doodle_typer() constructor{
 				doodle_execute_typer_command(get_command());
 				add_index(1);
 			}
-			var prev_index = pos();
 			if (wait.time <= 0 && !wait.input) {
-				add_index(speed)
+				add_index(speed*DELTA())
 				if (autopause) {
 					if (string_count(char(),D_AUTOPAUSE_CHAR) >= 1 && char() != "") {set_wait(.5)};
 				}
-			} else {
-				if (wait.time <= 0) {
-					if (input_pressed(INPUT_CONFIRM) && wait.input) {wait.input = false}
-				} else {wait.time -= (wait.time>0)*speed}
-			};
-			
-			
-			index = clamp(index,0,length());
-			is_writing = (pos() != floor(prev_index))
+			} else {wait.time -= ((wait.time>0)*speed)*DELTA()};
 			if (instance_exists(manager)) {manager.show = pos()};
 		} else {
-			is_writing=false;	done=true;
+			done=true;
 		};
+		
+		if (prev_index != pos()) {
+			is_writing = true
+			prev_index = pos()
+		} else {is_writing=false};
 		
 		if (is_writing) {
 			var is_valid = string_pos(char(),D_NO_BLIP_STRING) <= 0
-			if (is_valid) {doodle_play_blip(voice)};
+
+			if (is_valid) {
+				var frequency = doodle_get_bliprule(voice).frequency;
+				if (blip_delay <= 1) {
+					doodle_play_blip(voice)
+					blip_delay = frequency
+				} else {blip_delay--};
+			};
 		};
 	};
 };
