@@ -78,6 +78,7 @@ function item_name(ITEM,WICH="normal") {
 		}
 		return output
 	}
+	return "ITEM NOT FOUND"
 }
 	
 function item_get_index(_item, _array=global.inventory) {

@@ -36,8 +36,13 @@ global.intransition = false;
 
 item_add(new item_toy_knife())
 item_add(new item_bandage())
-item_add(new item_toy_knife())
 item_add(new item_bandage())
-item_add(new item_toy_knife())
 item_add(new item_bandage())
+
+item_add(new item_bandage())
+item_add(new item_bandage())
+item_add(new item_bandage())
+item_add(new item_bandage())
+
+
 s = undefined;

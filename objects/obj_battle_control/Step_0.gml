@@ -1,98 +1,11 @@
-buttons[BATTLE_PAGES.ITEM].selectable = array_length(global.inventory);
 var prev_page = page.current
-var break_array = [BATTLE_TURNS.PLAYER, BATTLE_TURNS.TURN], stop = false
 READY = instance_exists(obj_pre_battle) ? obj_pre_battle.state >= 3 : true
-
-//---Instantaneous Processing-------
-while(!array_contains(break_array,TURN) && !stop) {
-	switch(TURN) {
-		case BATTLE_TURNS.PLAYER_INIT:
-			if (box_is_normal()) {
-				if (!instance_exists(obj_soul)) {instance_create_depth(x,y,obj_battle_box.depth-1,obj_soul)}
-				battle_soul_visible(true);
-				battle_soul_state(STATE.follow);
-				battle_soul_variable_set("invincible",0)
-
-				if (array_length(index.previous) > 0) {index.current = array_first(index.previous)};
-				page.current = BATTLE_PAGES.MAIN;
-				if (!buttons[index.current].selectable) { //If button isn't selectable, search for a selectable one
-					var off = 0;
-					while(true) {
-						if (buttons[off].selectable) {index.current = off; break}
-						if (off > array_length(buttons)) {break}
-					}
-				}
-				target_enemy.instance = undefined;
-				target_enemy.index = 0;
-
-				did_scene = false;
-				index.previous=[];
-				page.previous=[];
-
-				battle_next_turn();
-			} else {
-				battle_soul_visible(false)
-				box_reset();
-				stop=true;
-			}
-		break;
-		
-		case BATTLE_TURNS.PLAYER_END:
-			if (!instance_exists(obj_soul)) {instance_create_depth(x,y,obj_battle_box.depth-1,obj_soul)};
-			battle_soul_visible(false);
-			battle_soul_state(STATE.follow);
-			//If there isn't any cutscene from the enemies and myself, proceed.
-			if (no_cutscene()) {battle_next_turn()} else {stop=true};
-		break;
-		
-		case BATTLE_TURNS.TURN_PREPARATION:
-			if (oneshot) {
-				battle_soul_position(obj_battle_box.x,obj_battle_box.y);
-				with(parEnemy) {
-					if (on_battle()) {
-						if (dead) {
-						 	other.lootbox.gold += gold*2;
-						 	other.lootbox.xp += xp;
-							region_add_kill(1);
-							enemy_event(ENEMY_EVENTS.DEATH,id);
-						}
-						else if (spared) { //If enemy is spared
-						 	other.lootbox.gold += gold;
-						 	enemy_event(ENEMY_EVENTS.SPARED,id);
-						} else {enemy_event(ENEMY_EVENTS.TURN_PREPARATION,id)};
-					}
-				}
-			
-				if (instance_exists(parTurn)) {//If there is an attack, prepare the box and yeah :3
-					box_reset();	box_size(160,136);	battle_soul_visible(true);
-				};
-				turn_event(TURN_EVENTS.TURN_PREPARATION);
-				oneshot=false;
-			};
-		
-			update_enemy_array()
-
-			if (no_cutscene()) { //PREPARATION END
-				if (array_length(enemy) > 0) {
-					enemy_event(ENEMY_EVENTS.TURN_PREPARATION_END);
-					turn_event(TURN_EVENTS.TURN_PREPARATION_END);
-				
-					battle_next_turn();
-				} else {battle_end()};
-			} else {stop=true};
-		break;
-		
-		
-		default: stop=true break;
-	}
-};
-
 switch(TURN) {
 	case BATTLE_TURNS.PLAYER:
 		switch(page.current) {
 			case BATTLE_PAGES.MAIN:
 				if (READY) {
-					set_controls((input_pressed(INPUT_RIGHT)-input_pressed(INPUT_LEFT)),array_length(buttons)-1);
+					set_controls(input_horizontal(),array_length(buttons)-1);
 					var _action = buttons[index.current];
 					if (!_action.selectable) {index.current += index.input}
 					if (input_pressed(INPUT_CONFIRM)) {
@@ -104,12 +17,19 @@ switch(TURN) {
 			break;
 			
 			case BATTLE_PAGES.ACT:
-				set_controls((input_pressed(INPUT_DOWN)-input_pressed(INPUT_UP)),array_length(enemy)-1);
+				set_controls(input_vertical(),array_length(enemy)-1);
 				enemy_list(BATTLE_PAGES.ACT_CHOOSE);
 			break;
 			
 			case BATTLE_PAGES.ACT_CHOOSE:
-				set_controls((input_pressed(INPUT_DOWN)-input_pressed(INPUT_UP)),array_length(target_enemy.instance.action)-1);
+				set_controls(input_vertical(),array_length(target_enemy.instance.action)-1);
+				if (input_horizontal() != 0) {
+					var line  = index.current mod row_length, collum = index.current div row_length;
+					var _in = (collum+input_horizontal()) * row_length + line;
+					_in = wrap(_in,0,row_length+line)
+				    index.current = _in;
+				}
+				
 				if (input_pressed(INPUT_CONFIRM)) {
 					var inst = target_enemy.instance;
 					if (is_method(inst.action[index.current].script)) {
@@ -125,7 +45,7 @@ switch(TURN) {
 			break;
 			
 			case BATTLE_PAGES.MERCY:
-				set_controls((input_pressed(INPUT_DOWN)-input_pressed(INPUT_UP)),array_length(mercy_actions)-1);
+				set_controls(input_vertical(),array_length(mercy_actions)-1);
 				if (input_pressed(INPUT_CONFIRM)) {
 					if (index.current == 0) { // Spare
 						with(parEnemy) {
@@ -140,24 +60,37 @@ switch(TURN) {
 			break;
 
 			case BATTLE_PAGES.FIGHT: 
-				set_controls((input_pressed(INPUT_DOWN)-input_pressed(INPUT_UP)),array_length(enemy)-1);
+				set_controls(input_vertical(),array_length(enemy)-1);
 				enemy_list(BATTLE_PAGES.FIGHT_ACTION);
 			break;
 
 			case BATTLE_PAGES.FIGHT_ACTION:
-				battle_soul_visible(false);
-				if (!instance_exists(obj_attack_grid)) {
-					instance_create_depth(0,0,obj_battle_box.depth-1,obj_attack_grid);
-				};
-				
-				if (obj_attack_grid.state >= ATTACK_STATE.OUTRO) {battle_next_turn()};
+				var atk_g = obj_attack_grid;
+				battle_soul_visible(false)
+				if (!instance_exists(atk_g)) {
+					instance_create_depth(0,0,obj_battle_box.depth-1,atk_g)
+				}
 			break;
 
 			case BATTLE_PAGES.ITEM:
-				set_controls(input_pressed(INPUT_DOWN)-input_pressed(INPUT_UP),array_length(global.inventory)-1);
+				var page_array = paged_inventory[inventory_page]
+				set_controls(input_vertical(),array_length(page_array)-1);
+				if (input_horizontal() != 0) {
+					var line  = index.current mod row_length,	collum = index.current div row_length
+					var _in = (collum+input_horizontal()) * row_length + line;
+					var length = row_length+line
+					if (_in > length || _in < 0) {
+						if (_in > length) {inventory_page+=(inventory_page < array_length(paged_inventory)-1)} 
+						else if (_in < 0) {inventory_page-=(inventory_page > 0)};
+					}
+					_in = wrap(_in,0,length)
+				    index.current = _in;
+				}
+				
+				var w = obj_battle_box.width
 				if (input_pressed(INPUT_CONFIRM)) {
 					var in = index.current;
-					var selected_item = global.inventory[in];
+					var selected_item = page_array[in];
 					my_cutscene = item_use(selected_item);
 					battle_next_turn();
 				}
@@ -218,17 +151,25 @@ switch(TURN) {
 
 
 if (page.current != prev_page) {
+	if (page.current == BATTLE_PAGES.ITEM) {
+		inventory_page = 0;
+		prepare_paged_inventory()
+	};
 	enemy_event(ENEMY_EVENTS.MENU_SWITCH);	
 }
 
-with(par_bt_button) {
-	var bt = other.buttons[other.index.current]
-	var pg = other.page.current == BATTLE_PAGES.MAIN
-	hovering = (bt == id && pg);
-	if (hovering || !other.READY) {
-		with(other) {set_heart(other.x+18,other.y+20)};
+if (page.current == BATTLE_PAGES.MAIN) {
+	var bt = buttons[index.current]
+	with(par_bt_button) {
+		hovering = (bt == id);
+		if (hovering && other.READY) {
+			with(other) {set_heart(other.x+18,other.y+20)};
+		}
 	}
+} else {
+	par_bt_button.hovering = false;
 }
+
 
 if (play_song && READY) {
 	bgm_set(song,2,2);

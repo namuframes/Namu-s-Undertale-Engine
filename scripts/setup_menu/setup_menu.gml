@@ -15,10 +15,6 @@ function setup_menu() {
 		//If i have a previous page/index, go to it and then remove it from the array
 		if (array_length(page.previous) > 0) {
 			page.current = array_pop(page.previous)
-			
-			////if (object_index == obj_battle_control) then with (obj_battle_control) {
-			////	if (TURN == BATTLE_TURNS.PLAYER) {enemy_event(ENEMY_EVENTS.MENU_SWITCH)}
-			////}
 		};
 		if (array_length(index.previous) > 0) {index.current = array_pop(index.previous)};
 	}

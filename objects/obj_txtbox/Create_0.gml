@@ -13,7 +13,7 @@ text_draw = function(_x,_y,_length=infinity) {
 		if (asset_get_type(portrait.font) == asset_font) {_font = portrait.font};
 	}
 	if (can_draw) {
-		doodle_draw(_x,_y,text[curtxt],,,c_white,1,lang_font(_font),1,1,0,_length,"*",1,c_black,writer)
+		doodle_draw(_x,_y,text[curtxt],,,c_white,1,lang_font(_font),1,1,0,_length,"*",,,writer)
 	}
 	
 	if (array_length(questions) > 2 ? !can_draw : true) {

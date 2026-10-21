@@ -5,9 +5,21 @@ final_x = 0;
 final_y = 0;
 follow_x = true;
 follow_y = true;
+shake_x = 0;
+shake_y = 0;
+
+offx = 0;
+offy = 0;
+offzoom = 0;
+
 view=0;
-width = BASE_WIDTH;
-height = BASE_HEIGHT;
+if (room != rm_battle) {
+	width = BASE_WIDTH;
+	height = BASE_HEIGHT;
+} else {
+	width = room_width;
+	height = room_height
+}
 
 limit_camera = function() {
 	var w = width/zoom;
@@ -20,7 +32,7 @@ limit_camera = function() {
 update_pos = function(__x,__y) {
 	if (follow_x) {x = __x};
 	if (follow_y) {y = __y};
-	limit_camera();
+	if (room != rm_battle) {limit_camera()};
 }
 
 reset_camera = function() {

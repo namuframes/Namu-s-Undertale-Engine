@@ -9,8 +9,8 @@
   "name":"obj_target_mark",
   "overriddenProperties":[],
   "parent":{
-    "name":"BATTLE",
-    "path":"folders/ENGINE/Objects/BATTLE.yy",
+    "name":"AttackGrid",
+    "path":"folders/ENGINE/Objects/BATTLE/AttackGrid.yy",
   },
   "parentObjectId":null,
   "persistent":false,

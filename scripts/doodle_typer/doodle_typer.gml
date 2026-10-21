@@ -81,7 +81,13 @@ function doodle_typer() constructor{
 				if (autopause) {
 					if (string_count(char(),D_AUTOPAUSE_CHAR) >= 1 && char() != "") {set_wait(.5)};
 				}
-			} else {wait.time -= ((wait.time>0)*speed)*DELTA()};
+			} else {
+				if (wait.time > 0) {
+					wait.time -= ((wait.time>0)*speed)*DELTA()	
+				} else {
+					if (wait.input && input_pressed(INPUT_CONFIRM)) {wait.input = false}
+				};
+			};
 			if (instance_exists(manager)) {manager.show = pos()};
 		} else {
 			done=true;

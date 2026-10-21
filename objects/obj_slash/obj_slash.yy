@@ -9,8 +9,8 @@
   "name":"obj_slash",
   "overriddenProperties":[],
   "parent":{
-    "name":"BATTLE",
-    "path":"folders/ENGINE/Objects/BATTLE.yy",
+    "name":"Player-Attacks",
+    "path":"folders/ENGINE/Objects/BATTLE/Player-Attacks.yy",
   },
   "parentObjectId":null,
   "persistent":false,

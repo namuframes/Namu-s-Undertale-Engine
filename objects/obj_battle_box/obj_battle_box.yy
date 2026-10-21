@@ -12,8 +12,8 @@
   "name":"obj_battle_box",
   "overriddenProperties":[],
   "parent":{
-    "name":"BATTLE",
-    "path":"folders/ENGINE/Objects/BATTLE.yy",
+    "name":"Non-Placeable",
+    "path":"folders/ENGINE/Objects/BATTLE/Non-Placeable.yy",
   },
   "parentObjectId":null,
   "persistent":false,

@@ -23,11 +23,16 @@ function battle_end() {
 }
 
 function enemy_list(_page=page.current, _show_hp=false) {
-	//Drawin' the enemy list
-	if (event_type == ev_gui || event_type == ev_draw) {
+	if (event_type == ev_step) {
+		if (input_pressed(INPUT_CONFIRM)) { //If enter is pressed, go to the setted page and set target enemy
+			set_target_enemy(index.current)
+			set_page(_page)	
+		}
+	} else { //Drawin' the enemy list
+		var line_space = string_height("I")*2
 		for(var i = 0; i < array_length(enemy); i++) {
 			var name = "* "+enemy[i].name
-			var __x = txt.x+heart_offset.space, __y = txt.y+32*i
+			var __x = txt.x+heart_offset.space, __y = txt.y+line_space*i
 			var c = enemy[i].spareable ? TEXTconfig.color2 : TEXTconfig.color
 			var d = doodle(name,,,c,main_font)
 			if (index.current == i) {set_heart(__x+heart_offset.x-heart_offset.space,__y+heart_offset.y)}
@@ -37,12 +42,7 @@ function enemy_list(_page=page.current, _show_hp=false) {
 				draw_hp(hp_x,hp_y,100,16,enemy[i].hp,enemy[i].hpmax,c_lime,c_red)
 			}
 			d.draw(__x,__y);
-		}
-	} else {
-		if (input_pressed(INPUT_CONFIRM)) { //If enter is pressed, go to the setted page and set target enemy
-			set_target_enemy(index.current)
-			set_page(_page)	
-		}
+		}	
 	}
 }
 function no_cutscene() {
@@ -90,6 +90,35 @@ main_button = function(_sprite) constructor {
 	sprite = asset_get_type(_sprite) == asset_sprite ? _sprite : spr_bt_fight
 	selectable = true;
 }
+
+prepare_paged_inventory = function() {
+	var _page = 0;
+	var _amount = 0;
+	paged_inventory = [];
+	for(var i = 0; i < array_length(global.inventory); i++) {
+		var _item = global.inventory[i];
+		if (_amount >= 4) {
+			_amount = 0;
+			_page++;
+		}
+		
+		paged_inventory[_page][_amount] = _item
+		_amount++;
+	}
+}
+
+input_horizontal = function() {
+	return (input_pressed(INPUT_RIGHT) && !input_pressed(INPUT_LEFT))-input_pressed(INPUT_LEFT)	
+}
+
+input_vertical = function() {
+	return (input_pressed(INPUT_DOWN) && !input_pressed(INPUT_UP))-input_pressed(INPUT_UP)	
+}
+
+
+row_length = 2
+paged_inventory = []
+inventory_page = 0;
 
 main_font = lang_font(fnt_main_mono)
 

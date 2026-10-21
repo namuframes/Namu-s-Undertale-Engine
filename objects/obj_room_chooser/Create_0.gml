@@ -1,9 +1,12 @@
 if (!DEVELOPER_MODE) {instance_destroy()}
 index = 0;
-rooms = [room_first]
-while (array_last(rooms) != -1) {
-	array_push(rooms,room_next(array_last(rooms)))
-}
-for(var i = 0; i < array_length(rooms); i++) {
-	if (room == rooms[i]) {index = i; break;}	
-}
+backspace_time = 0;
+
+room_list = asset_get_ids(asset_room);
+room_search = room_get_name(room);
+room_index = 0;
+room_result = [];
+sp = ""
+
+t = 0
+keyboard_string = ""
