@@ -13,5 +13,5 @@ if (initialize) { //Te amo tales, <3
 			variable_instance_set(object,var_name, end_value);
 			instance_destroy();	
 		}
-	}
+	} else {instance_destroy()}
 };

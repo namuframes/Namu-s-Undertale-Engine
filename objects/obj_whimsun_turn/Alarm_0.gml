@@ -2,11 +2,8 @@
 var q = 6;
 alarm[0] = q;
 if (!proceed) {exit}
-
-
 var box = obj_battle_box
 var space = (sprite_get_width(spr_soul)+sprite_get_width(spr_bButterfly))
-
 t+= (q*.1)*DELTA()
 pointx = sin(t)
 var t_x = box.x+25*pointx

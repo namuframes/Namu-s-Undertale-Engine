@@ -1,0 +1,12 @@
+{
+  "$GMShader":"",
+  "%Name":"sh_evaporate",
+  "name":"sh_evaporate",
+  "parent":{
+    "name":"Shaders",
+    "path":"folders/ENGINE/Shaders.yy",
+  },
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
+}

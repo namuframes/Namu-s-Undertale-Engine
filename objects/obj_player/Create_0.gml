@@ -21,7 +21,7 @@ function frisk_dance(object=obj_collision){
 	};
 }
 
-function collision(object=obj_collision) {
+collision = function(object=obj_collision) {
 	if (!is_solid()) {exit};
 	
 	var slide_range = spd;

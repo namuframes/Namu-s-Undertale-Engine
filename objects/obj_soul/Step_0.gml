@@ -96,4 +96,3 @@ if (state == STATE.free) {
 		can_reset=false;
 	}
 };
-

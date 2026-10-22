@@ -22,20 +22,18 @@ shoot_delay = 4;
 can_reset=true
 
 collision = function(object=obj_collision) {
+	var p = 0.1;
 	if (place_meeting(x+hsp,y,object)) {
-		if(!place_meeting(x+hsp,y-spd,object)) {y-=spd}
-		else if(!place_meeting(x+hsp,y+spd,object)) {y+=spd} else {
-
-			while (!place_meeting(x+sign(hsp),y,object)) {x += sign(hsp);}
-			hsp = 0;
-		};
+		while(!place_meeting(x+sign(hsp)*p,y,object)) {
+			x += sign(hsp)*p	
+		}
+		hsp = 0;
 	};
 
 	if (place_meeting(x,y+vsp,object)) {
-		if(!place_meeting(x-spd,y+vsp,object)) {x-=spd}
-		else if(!place_meeting(x+spd,y+vsp,object)) {x+=spd} else {
-			while (!place_meeting(x,y+sign(vsp),object)) {y += sign(vsp)}
-			vsp = 0
-		}
-	}
+		while(!place_meeting(x,y+sign(vsp)*p,object)) {
+			y += sign(vsp)*p	
+		}		
+		vsp = 0;
+	};
 }

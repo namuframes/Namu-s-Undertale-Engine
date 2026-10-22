@@ -5,7 +5,7 @@ function box_size(_width=undefined,_height=undefined,_x=undefined,_y=undefined, 
 		if (is_numeric(_height))	{tween(id,tag+"height","height",_height,ease_type,spd,,destroy_method)};
 		if (is_numeric(_x))			{tween(id,tag+"x","x",_x,ease_type,spd,,destroy_method)};
 		if (is_numeric(_y))			{tween(id,tag+"y","y",_y,ease_type,spd,,destroy_method)};
-		if (is_numeric(angle))		{tween(id,tag+"angle","image_angle",angle,ease_type,spd,,destroy_method)};
+		if (is_numeric(angle))		{tween(id,tag+"angle","angle",angle,ease_type,spd,,destroy_method)};
 	}
 }
 
@@ -29,7 +29,8 @@ function box_is_normal() {
 			return round(x) = round(normal.x) && 
 			round(y) = round(normal.y) && 
 			round(width) = round(normal.width) && 
-			round(height) = round(normal.height)
+			round(height) = round(normal.height) &&
+			round(angle) = round(normal.angle)
 		}
 	} else {
 		return false

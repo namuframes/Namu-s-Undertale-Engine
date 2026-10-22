@@ -8,3 +8,4 @@ depth = DEPTHS.UI;
 create_whimsun = 0;
 
 alarm[0] = 1
+o = 0

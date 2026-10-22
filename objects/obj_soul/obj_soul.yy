@@ -36,6 +36,9 @@
     "name":"spr_soul",
     "path":"sprites/spr_soul/spr_soul.yy",
   },
-  "spriteMaskId":null,
+  "spriteMaskId":{
+    "name":"spr_soul_collision",
+    "path":"sprites/spr_soul_collision/spr_soul_collision.yy",
+  },
   "visible":true,
 }
