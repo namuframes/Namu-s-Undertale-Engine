@@ -16,7 +16,7 @@
 #macro BORDER_HEIGHT (1080/2)
 
 #macro BORDER_SPECIAL "__border_special"
-#macro BORDER_DEFAULT BORDER_SPECIAL
+#macro BORDER_DEFAULT spr_border
 
 #macro DISPLAY_WIDTH display_get_width()
 #macro DISPLAY_HEIGHT display_get_height()
