@@ -21,7 +21,7 @@ if (curtxt < array_length(text)) {
 
 		//--------- QUESTION SYSTEM ------------
 		if (writer.done && array_length(questions) > 0) {
-			if (input_pressed(INPUT_CONFIRM) || string_length(text[curtxt]) <= 0) {question_wait=false};
+			if ((input_pressed(INPUT_CONFIRM) || input_check(INPUT_SPECIAL)) || string_length(text[curtxt]) <= 0) {question_wait=false};
 			if (!question_wait) {
 				var input_horizontal = -input_pressed(INPUT_LEFT);
 				var input_vertical = input_pressed(INPUT_DOWN)-input_pressed(INPUT_UP);

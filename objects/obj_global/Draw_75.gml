@@ -6,8 +6,7 @@ if (global.debug) {
 	txt += $"Delta: {DELTA()}\n{global.saved_player}\n"
 	txt += $"Region: {global.region}\n"
 	txt += $"Region_kills: {global.region_kills[? global.region]}\n"
-	txt += $"Language Font: {global.LANG_FONT}\n"
-	txt += $"Transition: {global.intransition}"
+	txt += $"Language Font: {global.LANG_FONT}"
 	draw_set_colour(c_black);	draw_set_alpha(0.25)
 	draw_rectangle(_x,_y,_x+string_width(txt)*.5,_y+string_height(txt)*.5,false)
 	draw_set_colour(c_white);	draw_set_alpha(1)

@@ -22,11 +22,9 @@ text_draw = function(_x,_y,_length=infinity) {
 			draw_set_font(font)
 			var heart_width = sprite_get_width(spr_small_heart)
 			var heart_height = sprite_get_height(spr_small_heart)
-			var box_width = sprite_get_width(spr_textbox)
-			var box_height = sprite_get_height(spr_textbox)
 			var __x, __y, ptx,
-			centerX = box_width*.5,	_dir = [180,0, 90, 270],	_heartSpace = heart_width*1.5,	c = c_white,	tw = 0,
-			centerY = box_height*.5
+			centerX = width*.5,	_dir = [180,0, 90, 270],	_heartSpace = heart_width*1.5,	c = c_white,	tw = 0,
+			centerY = height*.5
 			if (ut_style) {
 				for (var i = 0; i < array_length(questions); i++) {
 				    tw += string_width(questions[i][0]);
@@ -37,15 +35,15 @@ text_draw = function(_x,_y,_length=infinity) {
 			for (var i = 0; i < array_length(questions); i++) {
 			    var txt = questions[i][0], sh = string_height(txt),	sw = string_width(txt);
 				if (ut_style) {
-					__y = (_y+box_height*.75);
+					__y = (_y+height*.75);
 				} else {
 					__y = _y+centerY+sh*0.4
 					__x = centerX-sw*0.3;
 					var gapx = max(_heartSpace,sw);
 					if (i == 0) {__x = _x+_heartSpace}
-					else if (i == 1) {__x = (_x+(box_width-_x))-gapx}
+					else if (i == 1) {__x = (_x+(width-_x))-gapx}
 					else if (i == 2) {__y = _y+sh}
-					else if (i == 3) {__y = _y+(box_height)-sh};
+					else if (i == 3) {__y = _y+(height)-sh};
 				}
 			    draw_text_colour(__x, __y-sh, txt, c, c, c, c, 1);
 				if (question_index == i) {
@@ -100,6 +98,8 @@ set_portrait = function(input="",face=undefined) {
 top = get_if_top()
 
 x = 16; y = top ? 160 : 4
+width = 289;
+height = 76
 type = BOX_TYPE.overworld;
 creator = undefined;
 target = undefined;

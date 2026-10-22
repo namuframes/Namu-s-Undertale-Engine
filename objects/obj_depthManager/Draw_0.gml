@@ -1,17 +1,14 @@
-var _num = instance_number(parDepth);
-var _grid = grid
-ds_grid_resize(_grid,2,_num)
-for (var i = 0; i < _num; i++) {
-	with(parDepth) {
-		if (!exception)	{
-			_grid[# 0, i] = id;
-			_grid[# 1, i] = bbox_top+sprite_height/2;
-			i++;
-		}
-	}
-}
-ds_grid_sort(_grid, 1, true);
-for (var i = 0; i < ds_grid_height(_grid); i++) {
-	var _inst = _grid[# 0, i]
-	with (_inst) {event_perform(ev_draw,0)}
+if (array_length(instances) > 0) {
+	array_sort(instances,function(c,n) {
+		var cb = c.bbox_bottom+layer_get_depth(c.layer)
+		var nb = n.bbox_bottom+layer_get_depth(n.layer)
+		return 	cb - nb
+	});
+	
+	for(var i = 0; i < array_length(instances); i++) {
+		with(instances[i]) {
+			visible = false;
+			event_perform(ev_draw,0)
+		};
+	};
 }

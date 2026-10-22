@@ -1,1 +1,1 @@
-grid = ds_grid_create(2,0)
+instances = [];

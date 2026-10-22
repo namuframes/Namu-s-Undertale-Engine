@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"follow_depth",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"follow_depth",
+  "parent":{
+    "name":"OVERWORLD",
+    "path":"folders/ENGINE/Scripts/OVERWORLD.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

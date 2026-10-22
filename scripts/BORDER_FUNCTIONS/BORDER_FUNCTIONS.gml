@@ -14,10 +14,8 @@ function border(boolean) {
 function border_set_sprite(sprite, _easetime=undefined) {
 	if (global.border) {
 		with(obj_border) {
-			if (my_border[? "target"] != sprite) {
-				my_border[? "target"].sprite = sprite;
-				if (is_numeric(_easetime)) {my_border[? "target"].ease_time = _easetime};
-			}
+			_border.target.sprite = sprite;
+			if (is_numeric(_easetime)) {_border.target.ease_time = _easetime;};
 		}
 	}
 }

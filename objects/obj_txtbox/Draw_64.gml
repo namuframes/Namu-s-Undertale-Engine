@@ -6,8 +6,9 @@ switch(type) {
 			x: 14,
 			y: 10
 		}
-
-		draw_sprite(spr_textbox,0,x,y);
+		
+		
+		draw_box(x,y,width,height);
 		if (instance_exists(portrait)) {
 			var s = 50
 			text_pos.x += s;
@@ -18,7 +19,7 @@ switch(type) {
 			portrait.draw((x+30+off_x)-spr_width,(y+30+off_y)-spr_height);
 		}
 
-		var final_length = (sprite_get_width(spr_textbox)-text_pos.x-4)
+		var final_length = (width-text_pos.x-4)
 		text_draw(x+text_pos.x,y+text_pos.y,final_length)
 	break;
 	

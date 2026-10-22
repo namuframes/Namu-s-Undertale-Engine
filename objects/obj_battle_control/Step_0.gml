@@ -162,7 +162,7 @@ if (page.current == BATTLE_PAGES.MAIN) {
 	var bt = buttons[index.current]
 	with(par_bt_button) {
 		hovering = (bt == id);
-		if (hovering && other.READY) {
+		if (hovering || !other.READY) {
 			with(other) {set_heart(other.x+18,other.y+20)};
 		}
 	}

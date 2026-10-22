@@ -12,7 +12,7 @@ interaction_behaviour = function() {
 }
 
 step = function() {
-	interaction_behaviour();	
+
 }
 	
 draw = function() {

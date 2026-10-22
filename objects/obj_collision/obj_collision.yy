@@ -11,10 +11,7 @@
     "name":"COLLISIONS",
     "path":"folders/Objects/COLLISIONS.yy",
   },
-  "parentObjectId":{
-    "name":"parDepth",
-    "path":"objects/parDepth/parDepth.yy",
-  },
+  "parentObjectId":null,
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

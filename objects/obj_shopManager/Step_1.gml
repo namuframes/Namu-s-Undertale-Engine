@@ -1,5 +1,8 @@
 check_custenceCommands("cutscene")
-if (!instance_exists(shop)) {instance_create_depth(0,0,depth-1,shop)};
+if (!instance_exists(shop)) {
+	shop = instance_create_depth(0,0,depth+100,shop);
+	shop.visible = false;
+};
 
 in_cutscene = (instance_exists(cutscene) || instance_exists(shop.cutscene))
 if (in_cutscene) {set_page("cutscene",false)}

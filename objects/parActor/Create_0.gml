@@ -1,5 +1,4 @@
-event_inherited();
-
+follow_depth();
 function set_sprite(_name,_val) {
 	struct_set(sprite,_name,is_array(_val) ? _val : [_val])	
 }

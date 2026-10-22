@@ -20,3 +20,9 @@ fadeout_start = undefined
 step = undefined
 
 freeze_player = false
+
+draw_fade = function(_alpha_multiplier=1) {
+	draw_set_alpha(alpha*_alpha_multiplier)
+	draw_rectangle_colour(0,0,99999,99999,color,color,color,color,false)
+	draw_set_alpha(1)
+}

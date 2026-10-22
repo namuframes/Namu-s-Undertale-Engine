@@ -19,8 +19,7 @@
   "height":20,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"60f8867d-ba26-4915-a9a5-474fba9bdd56","blendMode":0,"displayName":"default","isLocked":true,"name":"60f8867d-ba26-4915-a9a5-474fba9bdd56","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"0e8fc42e-da5f-42eb-8da2-bf8096c839da","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"0e8fc42e-da5f-42eb-8da2-bf8096c839da","opacity":74.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"06aeee84-a5a9-49ac-a13a-7f74e0e9deb3","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"06aeee84-a5a9-49ac-a13a-7f74e0e9deb3","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_battle_box",
   "nineSlice":{
