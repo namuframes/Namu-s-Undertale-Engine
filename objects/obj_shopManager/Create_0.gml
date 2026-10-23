@@ -1,4 +1,3 @@
-
 setup_menu()
 depth = DEPTHS.UI
 shop = parShopKeeper

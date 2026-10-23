@@ -1,6 +1,4 @@
-
 if (!instance_exists(shop)) {exit}
-
 if (input_pressed(INPUT_CANCEL) && buy_state == 0 && page.current != "cutscene" && page.current != SHOP_OPTIONS.EXIT) {
 	if (array_length(page.previous) <= 0 && room != rm_shop) {instance_destroy()}
 	previous_page()
@@ -67,23 +65,29 @@ switch(page.current) {
 		case SHOP_OPTIONS.TALK:
 			set_controls((input_pressed(INPUT_DOWN)-input_pressed(INPUT_UP)),array_length(talk)-1);
 			if (input_pressed(INPUT_CONFIRM)) {
-				with(shop) {script_execute(talk[other.index.current].script)};
+				with(shop) {
+					cutscene = create_cutscene(talk[other.index.current].script)
+				};
 			}
 		break;
 		
 		case SHOP_OPTIONS.EXIT:
-			if (oneshot) {with(shop) {event_user(0); create_cutscene(cutscene)}; oneshot=false}
+			if (oneshot) {
+				with(shop) {
+					event_user(0)
+					cutscene = create_cutscene_once();
+				}; 
+				oneshot = false
+			}
 
-			if (!instance_exists(parCutscene)) {
+			if (!instance_exists(cutscene) && !instance_exists(shop.cutscene)) {
 				if (room != rm_shop) {instance_destroy()} else {
-					switch_room(global.saved_player.room)	
+					switch_room(global.saved_player.room)
 				}
 			}
 		break;
 		
 		case "cutscene":
-			if (!instance_exists(cutscene) && !instance_exists(shop.cutscene)) {
-				previous_page()
-			}
+			if (!instance_exists(cutscene) && !instance_exists(shop.cutscene)) {previous_page()}
 		break;
 }

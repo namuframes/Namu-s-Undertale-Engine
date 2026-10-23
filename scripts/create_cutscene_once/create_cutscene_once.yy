@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"create_cutscene_once",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"create_cutscene_once",
+  "parent":{
+    "name":"CUTSCENE",
+    "path":"folders/ENGINE/Scripts/CUTSCENE.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

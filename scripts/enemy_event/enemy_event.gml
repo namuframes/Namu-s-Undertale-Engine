@@ -4,13 +4,9 @@ function enemy_event(event,object=parEnemy) {
 			with(object) {
 				if (on_battle()) {
 					event_user(event); 
-					if (array_length(get_cutscene_variable()) > 0) {
-						//Making the cutscene create with c_name be created instantly
-						my_scene = create_cutscene(get_cutscene_variable());
-						set_cutscene_variable([]);
-					}
+					my_scene = create_cutscene_once();
 				}
 			}
-		} else {show_error("invalid enemy!\nenemy_event()",true)}
+		} else {show_error("invalid enemy!\nenemy_event",true)}
 	}
 }
