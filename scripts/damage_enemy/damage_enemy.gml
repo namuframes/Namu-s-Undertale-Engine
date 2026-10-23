@@ -4,6 +4,6 @@ function damage_enemy(damage,target=obj_battle_control.target_enemy.instance,use
 		if (is_numeric(damage)) {
 			if (damage > 0) {target.attacked = true}
 		}
-		enemy_event(user_event) //Execute hurt animation if i'm allowed to
+		enemy_event(user_event,target) //Execute hurt animation if i'm allowed to
 	}
 }
