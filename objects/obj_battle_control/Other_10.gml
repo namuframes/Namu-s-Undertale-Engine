@@ -13,6 +13,6 @@ if (!is_array(global.ENCOUNTER_ID)) {
 		break;
 	}
 } else {
-	enemy = global.ENCOUNTER_ID;	
+	enemy = variable_clone(global.ENCOUNTER_ID);	
 }
 create_enemies();

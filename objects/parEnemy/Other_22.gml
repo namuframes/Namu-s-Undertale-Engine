@@ -3,7 +3,8 @@ create_damage_text();
 receive_damage();
 c_shake(id,(hp_previous-hp)/2,0,1.5);
 c_custom(function() {
-	if (obj_damageTxt.state = "end" && !shake_exists(creator.id) && !tween_exists($"{creator.id}:hpTween")) {
+	var t = instance_exists(obj_damageTxt) ? obj_damageTxt.state == "end" : true
+	if (t && !shake_exists(creator.id) && !tween_exists($"{creator.id}:hpTween")) {
 		end_action()
 	};
 })

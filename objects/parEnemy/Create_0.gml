@@ -28,7 +28,7 @@ function show_hp(boolean = (hp_previous != hp)) { //Use this on DRAWs!
 		tween(id,$"{id}:hpTween","fakehp",hp,EASE_LINEAR,2)	
 		//Drawing the HP bar
 		if (is_numeric(damage_taken)) {
-			draw_hp(hpbar.x, hpbar.y,hpbar.width,hpbar.height,fakehp,hpmax,c_lime,#4C4C4C,1.5); //Drawing the hp bar
+			draw_hp(hpbar.x, hpbar.y,hpbar.width,hpbar.height,fakehp,hpmax,c_lime,#4C4C4C,2); //Drawing the hp bar
 		}
 	}
 }
