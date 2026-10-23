@@ -55,7 +55,10 @@ while(!array_contains(break_array,TURN) && !stop) {
 						else if (spared) { //If enemy is spared
 						 	other.lootbox.gold += gold;
 						 	enemy_event(ENEMY_EVENTS.SPARED,id);
-						} else {enemy_event(ENEMY_EVENTS.TURN_PREPARATION,id)};
+						} else {
+							attacked = false
+							enemy_event(ENEMY_EVENTS.TURN_PREPARATION,id)
+						};
 					}
 				}
 			

@@ -3,7 +3,6 @@ damage = 0;
 cutscene = undefined;
 oneshot = true;
 target = undefined;
-attacked = false;
 anim = true;
 
 doing_before_hurt = true
