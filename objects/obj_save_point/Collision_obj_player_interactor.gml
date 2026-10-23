@@ -7,4 +7,4 @@ if (array_length(texts) > 0) {
 	c_wait_dialogue();
 }
 c_instance_create(0,0,0,obj_save_handler);
-check_custenceCommands();	
+create_cutscene(get_cutscene_variable());	

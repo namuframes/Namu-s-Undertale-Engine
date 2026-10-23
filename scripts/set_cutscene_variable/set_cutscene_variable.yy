@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"check_custenceCommands",
+  "%Name":"set_cutscene_variable",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"check_custenceCommands",
+  "name":"set_cutscene_variable",
   "parent":{
     "name":"CUTSCENE",
     "path":"folders/ENGINE/Scripts/CUTSCENE.yy",

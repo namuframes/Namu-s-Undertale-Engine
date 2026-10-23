@@ -1,1 +1,2 @@
 instances = [];
+inst_previous = [];

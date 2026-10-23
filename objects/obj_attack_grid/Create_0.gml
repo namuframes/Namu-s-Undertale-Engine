@@ -6,6 +6,8 @@ target = undefined;
 attacked = false;
 anim = true;
 
+doing_before_hurt = true
+
 calculate_damage = function(bar,divided=1,random_value=2) {
 	var dist = point_distance(x,y,bar.x,bar.y)
 	var presision = 1-clamp(dist/x,0,1)

@@ -26,9 +26,9 @@ interaction = function() {
 			if (is_method(scenes[page])) {
 				script_execute(scenes[page])	
 			}
-			check_custenceCommands()
 			page+= (page < array_length(scenes)-1)
-		} else {check_custenceCommands(,false)}
+		}
+		create_cutscene(get_cutscene_variable())
 		reset_sprite = true
 	}
 }

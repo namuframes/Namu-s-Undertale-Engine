@@ -5,10 +5,3 @@ if (!player_cantmove()) {
 	}
 	if (!instance_exists(obj_menu)) {menu_delay-=(menu_delay>0)}
 }
-with(obj_depthManager) {
-	if (instance_exists(obj_player)) {
-		depth = obj_player.depth;
-	} else {
-		depth = other.depth;	
-	}
-}

@@ -1,6 +1,6 @@
 /// @func evaporate(source, [x], [y], [params], [depth], [free_src])
 /// source: surface (x,y = its top-left) | sprite index (x,y = its origin) | instance (uses its sprite, index, scale and position)
-function evaporate(_src, _x = undefined, _y = undefined, _params = {}, _depth = -9999, _free_src = false) {
+function evaporate(_src, _x = undefined, _y = undefined, _params = {}, _depth = depth, _free_src = false) {
 	var _surf = _src;
 	var _own  = false;
 	var _inst = noone;

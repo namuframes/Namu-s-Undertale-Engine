@@ -1,1 +1,1 @@
-check_custenceCommands("cutscene");
+create_cutscene(cutscene)

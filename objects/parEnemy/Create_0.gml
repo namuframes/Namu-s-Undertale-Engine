@@ -22,7 +22,7 @@ function set_action(_name,_script=undefined,index=array_length(action)) {
 	}	
 }
 
-function show_hp(boolean = (hp_previous != hp && in_battle())) { //Use this on DRAWs!
+function show_hp(boolean = (hp_previous != hp)) { //Use this on DRAWs!
 	if (boolean) { //If condition is meet, execute the code!
 		//Fake hp is used on the HP bar to do the cool hp drain effect
 		tween(id,$"{id}:hpTween","fakehp",hp,EASE_LINEAR,2)	
@@ -50,6 +50,10 @@ create_damage_text = function() {
 		}
 	} else {i.image_blend = c_gray}
 	return i
+}
+
+receive_damage = function() {
+	if (is_numeric(damage_taken)) {hp -= damage_taken};	
 }
 
 hp = hpmax;

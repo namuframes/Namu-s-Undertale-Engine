@@ -81,7 +81,7 @@ function turn_event(event,object=parTurn) {
 	with(object) {
 		if (object_index == parTurn || object_get_parent(object_index) == parTurn) {
 			event_user(event); 
-			check_custenceCommands() //Making the cutscene create with c_name be created instantly
+			create_cutscene(get_cutscene_variable()) //Making the cutscene create with c_name be created instantly
 		} else {show_error("invalid turn!\nturn_event()",true)}
 	}
 }

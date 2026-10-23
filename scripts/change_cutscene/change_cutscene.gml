@@ -1,21 +1,22 @@
 function change_cutscene(scene,cutscene_holder_string="my_scene"){
-	var p = variable_clone(variable_instance_get(id,CUTSCENE_VARIABLE))
-	variable_instance_set(id,CUTSCENE_VARIABLE, []) //Reseting the cutscene variables for fresh new shit
+	var p = variable_clone(get_cutscene_variable(id))
+	set_cutscene_variable([]); //Reseting the cutscene variables for fresh new shit
 
 	if (is_method(scene)) {script_execute(scene)}
-	else if (is_array(scene)) {variable_instance_set(id,CUTSCENE_VARIABLE, scene)}
+	else if (is_array(scene)) {set_cutscene_variable(scene)}
 
 	if (variable_instance_exists(id,cutscene_holder_string)) {
-		var i = variable_instance_get(id,cutscene_holder_string)
-		if (instance_exists(i)) {
-			with(i) {
+		var cutscene_instance = variable_instance_get(id,cutscene_holder_string) //Grabbing Cutscene Instance
+		if (instance_exists(cutscene_instance)) {
+			with(cutscene_instance) {
 				var cr=creator
 				event_perform(ev_create,0)
 				creator = cr;
 			}
-			variable_instance_set(variable_instance_get(id,cutscene_holder_string),CUTSCENE_VARIABLE, variable_instance_get(id,CUTSCENE_VARIABLE))
+			variable_instance_set(cutscene_instance,CUTSCENE_VARIABLE, get_cutscene_variable(id))
 		}
+	} else { //If doesn't exist a cutscene instance, so we create one and yeaahhh...
+		create_cutscene(get_cutscene_variable())	
 	}
-	check_custenceCommands(cutscene_holder_string) //fallback
 	variable_instance_set(id,CUTSCENE_VARIABLE, p)
 }

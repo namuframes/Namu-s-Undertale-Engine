@@ -13,27 +13,30 @@ switch(state) {
 		if (oneshot) {
 			if (damage > 0) {
 				cutscene = create_cutscene(function() {
-					c_instance_create((target.bbox_left+target.bbox_right)/2,(target.bbox_top+target.bbox_bottom)/2,target.depth-1,obj_slash);
+					var centerX = ((target.x-target.sprite_xoffset)+target.sprite_width/2);
+					var centerY = ((target.y-target.sprite_yoffset)+target.sprite_height/4);
+					c_instance_create(centerX,centerY,target.depth-1,obj_slash);
 					c_custom(function() {
 						if (!instance_exists(obj_slash)) {end_action()}	
 					})
 					c_wait(.1)
 				})
 			}
-			with(target) {event_user(ENEMY_EVENTS.BEFORE_HURT); check_custenceCommands()};
-			
+			enemy_event(ENEMY_EVENTS.BEFORE_HURT,target)
 			oneshot=false;
 		}
-		if (!instance_exists(cutscene)) {
-			if (anim) {
-				damage_enemy(damage)
-				anim = false;
+		if (!doing_before_hurt) {
+			if (!instance_exists(cutscene)) {
+				if (anim) {
+					damage_enemy(damage)
+					anim = false;
+				}
+				if (!instance_exists(target.my_scene)) {
+					state = ATTACK_STATE.OUTRO
+					battle_next_turn();
+				}
 			}
-			if (!instance_exists(target.my_scene)) {
-				state = ATTACK_STATE.OUTRO
-				battle_next_turn();
-			}
-		}
+		} else if (!instance_exists(target.my_scene)) {doing_before_hurt = false};
 	break;
 	
 	case ATTACK_STATE.OUTRO:

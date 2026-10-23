@@ -1,1 +1,0 @@
-if (instance_exists(obj_depthManager) && !exception) {visible = false}

@@ -34,8 +34,7 @@ switch(TURN) {
 					var inst = target_enemy.instance;
 					if (is_method(inst.action[index.current].script)) {
 						with (inst) {
-							script_execute(action[other.index.current].script);
-							check_custenceCommands(); //Creating the cutscene instantly if there's custscene commands
+							my_scene = create_cutscene(action[other.index.current].script); 
 						}
 					} else {
 						enemy_event(other.index.current,inst);

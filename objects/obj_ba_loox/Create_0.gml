@@ -8,7 +8,7 @@ oneshot = false
 
 scared_asf=false
 set_action("Terrorize",function() {
-	c_shake(id,"x",4,2)
+	c_shake(id,2,0,1)
 	c_dialogue("* You move your fingers meanincingly")
 	c_wait_dialogue()
 	set_flavor("* Loox is scared\nWhy would you do that?")

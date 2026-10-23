@@ -10,8 +10,8 @@ function c_cmd(_argsArray, _script) {
 		args: _argsArray,
 		script: _script
 	}
-	while (!variable_instance_exists(id,CUTSCENE_VARIABLE)) {variable_instance_set(id,CUTSCENE_VARIABLE,[])}
-	var v = variable_instance_get(id,CUTSCENE_VARIABLE)
+	while (!variable_instance_exists(id,CUTSCENE_VARIABLE)) {set_cutscene_variable([])}
+	var v = get_cutscene_variable();
 	array_push(v, command);
 }
 

@@ -72,7 +72,7 @@ switch(page.current) {
 		break;
 		
 		case SHOP_OPTIONS.EXIT:
-			if (oneshot) {with(shop) {event_user(0); check_custenceCommands("cutscene")}; oneshot=false}
+			if (oneshot) {with(shop) {event_user(0); create_cutscene(cutscene)}; oneshot=false}
 
 			if (!instance_exists(parCutscene)) {
 				if (room != rm_shop) {instance_destroy()} else {

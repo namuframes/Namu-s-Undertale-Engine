@@ -12,4 +12,4 @@
 #macro D_BLIP_PITCH_MIN 1
 #macro D_BLIP_PITCH_MAX 1
 #macro D_BLIP_FREQUENCY 1
-#macro D_BLIP_INTERRUPT false
+#macro D_BLIP_INTERRUPT true

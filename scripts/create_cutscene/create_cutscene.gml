@@ -1,24 +1,26 @@
-function create_cutscene(_script,_target=id){
-	var i = instance_create_depth(0,0,0,parCutscene)
-	i.creator = _target;
-	if (is_method(_script)) {
-		with(i.creator) {
-			var p = variable_clone(get_cutscene_variable()) //Saving my commands before it be overwritten
-			variable_instance_set(id,CUTSCENE_VARIABLE,[]) //Seting my cutscene commands empty
+function create_cutscene(_info,_target=id){
+	static create_cutscene_instance = function() {return instance_create_depth(0,0,0,parCutscene)}
+	var i
+	if (is_method(_info)) {
+		i = create_cutscene_instance();
+		with(_target) {
+			var p = variable_clone(get_cutscene_variable()) //Saving MY commands before it be overwritten
+			set_cutscene_variable([]) //Seting MY cutscene commands empty
 			
-			script_execute(_script); //Overwritting my commands
-			variable_instance_set(i,CUTSCENE_VARIABLE,get_cutscene_variable()) //Giving the cutscene Instance my commands
+			script_execute(_info); //Overwritting my commands
+			set_cutscene_variable(get_cutscene_variable(),i) //Giving the Cutscene Instance MY commands
 			
-			variable_instance_set(id,CUTSCENE_VARIABLE,p) //Setting my commands to the saved commands
+			set_cutscene_variable(p) //Setting MY commands to the saved commands
 		}
-	} else if (is_array(_script)) { //If the script is an ARRAY
-		if (array_length(_script) > 0) {
-			variable_instance_set(i,CUTSCENE_VARIABLE,_script)
-		} else { //If there isn't any command in the array, delete the cutscene and return an empty instance
-			instance_destroy(i)
-			return noone;
-		}
+	} else if (is_array(_info)) { //If the _info is an ARRAY
+		if (array_length(_info) > 0) {
+			i = create_cutscene_instance();
+			set_cutscene_variable(_info,i);
+		} else {return noone} //If the array is empty, just return nothing
 	}
-	
-	return i;
+	if (instance_exists(i)) {
+		i.creator = _target;
+		return i;
+	}
+	return noone;
 }
