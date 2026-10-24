@@ -10,7 +10,4 @@ if (array_length(marker) > 0) {
 			array_delete(marker,0,1)
 		}
 	}
-}
-
-
-else {state = ATTACK_STATE.ANIMATION};
+} else {state = ATTACK_STATE.ANIMATION};
