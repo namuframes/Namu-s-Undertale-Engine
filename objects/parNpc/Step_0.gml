@@ -1,12 +1,5 @@
 var ps = sprite_index, is_me = false;
 with(obj_txtbox) {if (target = other.id) {is_me=true}};
-
-if (is_me) {
-	face_at(face,1)
-	if (talk) {image_speed = 1} else {
-		if (wait_index([0])) {image_speed=0};
-	};
-}
 interaction_behaviour();	
 
 if (!instance_exists(my_scene)) {
@@ -23,5 +16,18 @@ if (!instance_exists(my_scene)) {
 	}
 	face_at(face);
 };
+
+if (is_me) {
+	face_at(face,1)
+	if (talk) {
+		sprite_index = get_sprite(face,1)
+		image_speed = 1
+	} else {
+		if (wait_index([0])) {
+			sprite_index = get_sprite(face,0)
+			image_speed=0
+		};
+	};
+}
 
 step();
